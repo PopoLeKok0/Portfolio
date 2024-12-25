@@ -1,0 +1,208 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    background: linear-gradient(to top, #313131, #161616);
+}
+
+/* Splash screen styles remain the same */
+.intro {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #161616;
+    transition: 1s;
+}
+
+.welcome-header {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 3rem;
+}
+
+.welcome {
+    position: relative;
+    display: inline-block;
+    bottom: -20px;
+    opacity: 0;
+}
+
+.welcome.active {
+    bottom: 0;
+    opacity: 1;
+    transition: ease-in-out 0.5s;
+}
+
+.welcome.fade {
+    bottom: 150px;
+    opacity: 0;
+    transition: ease-in-out 0.5s;
+}
+
+/* Header Section */
+header {
+    background: #161616;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h2 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+header p {
+    margin: 5px 0;
+}
+
+/* Glassy buttons */
+header .buttons a {
+    display: inline-block;
+    margin: 10px 5px;
+    padding: 10px 20px;
+    color: #232d38;
+    background: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    transition: background 0.3s, transform 0.2s;
+}
+
+header .buttons a:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section.aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Skills Section */
+#skills {
+    text-align: center;
+    padding: 20px;
+}
+
+#skills ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+#skills li {
+    margin: 10px 0;
+    padding: 10px;
+    background: rgba(61, 60, 60, 0.7);
+    border-radius: 5px;
+    transition: transform 0.2s;
+}
+
+#skills li:hover {
+    transform: translateX(10px);
+}
+
+h3 {
+    color: #ffffff;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Project Grid */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background: #3d3c3c;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.project-card h4 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+/* logo Picture */
+.logo-pic {
+    text-align: center;
+}
+
+/* Contact Section */
+#contact {
+    text-align: center;
+}
+
+#contact a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+#contact a:hover {
+    color: #1e90ff;
+}
+
+/* Footer */
+footer {
+    background: #161616;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Animation for sections */
+[data-aos="fade-up"] {
+    transform: translateY(50px);
+    opacity: 0;
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+
+[data-aos="fade-up"].aos-animate {
+    transform: translateY(0);
+    opacity: 1;
+}
