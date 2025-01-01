@@ -42,7 +42,7 @@ themeSwitch.addEventListener('click', () => {
     document.body.classList.toggle('light-mode');
 
     const isLightMode = document.body.classList.contains('light-mode');
-    const themeIcon = isLightMode ? '../icons/dark_mode.png' : '../icons/light_mode.png';
+    const themeIcon = isLightMode ? 'icons/dark_mode.png' : 'icons/light_mode.png';
 
     themeSwitch.querySelector('img').src = themeIcon;
     themeSwitch.querySelector('img').alt = isLightMode ? 'Dark Mode' : 'Light Mode';
