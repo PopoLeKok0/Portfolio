@@ -17,7 +17,10 @@
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact me</a></li>
         </ul>
-        <button id="theme-switch" class="theme-switch">Light Mode</button>
+        <button id="theme-switch" class="theme-switch">
+            <img src="light_mode.png" alt="Switch Theme">
+        </button>
+        
     </nav>
     
     <!-- Intro Section -->
@@ -31,14 +34,21 @@
     <header>
         <div class="container">
             <div class="logo-pic">
-                <img src="M_logo.png" alt="logo">
+                <div class="custom-logo">M . B</div>
             </div>
             <h2 class="portfolio-header">Mouad Ben lahbib</h2>
             <p>Computer Engineering Student</p>
             <p>Innovating Solutions, Building Experiences</p>
             <div class="buttons">
-                <a href="https://github.com/PopoLeKok0" target="_blank">GitHub</a>
-                <a href="https://linkedin.com/in/mouadbenlahbib" target="_blank">LinkedIn</a>
+                <a href="https://github.com/PopoLeKok0" target="_blank">
+                    <img src="github.svg" alt="GitHub">
+                </a>
+                <a href="https://linkedin.com/in/mouadbenlahbib" target="_blank">
+                    <img src="linkedin.svg" alt="LinkedIn">
+                </a>
+                <a href="Mouad_resume.pdf" download>
+                    <img src="resume.svg" alt="Download Resume">
+                </a>
             </div>
         </div>
     </header>
@@ -107,13 +117,6 @@
     </script>
     <script src="welcome.js"></script>
     <script src="app.js"></script>
-    <script>
-        const themeSwitch = document.getElementById('theme-switch');
-        themeSwitch.addEventListener('click', () => {
-            document.body.classList.toggle('light-mode');
-            themeSwitch.textContent = document.body.classList.contains('light-mode') ? 'Dark Mode' : 'Light Mode';
-        });
-    </script>
 </body>
 
 </html>

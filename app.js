@@ -37,3 +37,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
     });
 });
+const themeSwitch = document.getElementById('theme-switch');
+themeSwitch.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+
+    const isLightMode = document.body.classList.contains('light-mode');
+    const themeIcon = isLightMode ? 'dark_mode.png' : 'light_mode.png';
+
+    themeSwitch.querySelector('img').src = themeIcon;
+    themeSwitch.querySelector('img').alt = isLightMode ? 'Dark Mode' : 'Light Mode';
+});

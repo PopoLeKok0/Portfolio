@@ -99,7 +99,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background: #1e90ff;
+    background: #b5c7eb;
     color: #000;
     border-radius: 5px;
 }
@@ -137,7 +137,7 @@ header .buttons a {
 }
 
 header .buttons a:hover {
-    background: rgba(255, 255, 255, 0.9);
+    background: #b5c7eb;
     transform: translateY(-2px);
 }
 
@@ -154,7 +154,6 @@ section {
     transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     scroll-margin-top: 55px; 
-}
 }
 
 section.aos-animate {
@@ -222,7 +221,7 @@ h3 {
 /* logo Picture */
 .logo-pic {
     text-align: center;
-    margin-bottom: -100px;
+    margin-bottom: 5px;
 }
 
 /* Footer */
@@ -257,7 +256,7 @@ footer {
 }
 
 #contact a:hover {
-    color: #1e90ff;
+    color: #b5c7eb;
 }
 .contact-form {
     max-width: 600px;
@@ -287,8 +286,8 @@ footer {
     font-size: 1rem;
     border: 1px solid #ddd;
     border-radius: 4px;
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
+    background: #fff;
+    color: #000;
     text-align: left;
 }
 
@@ -299,8 +298,8 @@ footer {
 
 .contact-form .submit-btn {
     display: block;
-    background-color: #1e90ff;
-    color: #fff;
+    background-color: #4c7fe6;
+    color: #000000;
     padding: 15px 20px;
     font-size: 1.5rem;
     margin: 20px auto;
@@ -312,7 +311,7 @@ footer {
 }
 
 .contact-form .submit-btn:hover {
-    background-color: #0056b3;
+    background-color: #1e90ff;
 }
 
 /* Light Mode Styles */
@@ -332,8 +331,20 @@ body.light-mode nav ul li a {
 }
 
 body.light-mode nav ul li a:hover {
-    background: #ddd;
+    background: #93AD9F; /* Misty green */
     color: #000;
+    border-radius: 5px;
+}
+
+/* Light Mode Buttons Hover */
+body.light-mode .buttons a:hover {
+    background: #93AD9F; /* Misty green */
+    transform: translateY(-2px); /* Keep existing hover effect */
+}
+
+/* Light Mode Contact Links Hover */
+body.light-mode #contact a:hover {
+    color: #93AD9F; /* Misty green */
 }
 
 body.light-mode header {
@@ -369,17 +380,59 @@ body.light-mode .contact-form textarea {
 }
 
 body.light-mode .submit-btn {
-    background-color: #4caf50;
+    background-color: #53b480;
     color: #fff;
 }
 
 body.light-mode .submit-btn:hover {
-    background-color: #45a049;
+    background-color: #4caf50 ;
 }
+
 body.light-mode #contact a {
-    color: #666; /* Light gray for email link */
+    color: #666;
 }
 
 body.light-mode #contact a:hover {
-    color: #1e90ff; /* Keep hover effect consistent */
+    color: #b5c7eb;
+}
+/* Logo color in light mode */
+body.light-mode .logo, 
+body.light-mode .custom-logo {
+    color: #93AD9F; /* Misty green */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* Adjust text shadow for better contrast */
+}
+
+
+/* Theme Switch Button */
+.theme-switch {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: transparent; /* No background to highlight the image */
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+}
+
+.theme-switch:hover {
+    transform: scale(1.1);
+}
+
+.theme-switch img {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+
+/* Logo */
+.logo, .custom-logo {
+    font-family: "Great Vibes", serif;
+    font-size: 4.5rem;
+    color: #b5c7eb; /* Misty blue */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
