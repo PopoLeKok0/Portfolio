@@ -5,6 +5,12 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
+.great-vibes-regular {
+    font-family: "Great Vibes", serif !important; /* Use !important to override global styles */
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2.5rem; /* Adjust the size as needed */
+}
 
 body {
     font-family: Arial, sans-serif;
@@ -52,6 +58,50 @@ body {
     bottom: 150px;
     opacity: 0;
     transition: ease-in-out 0.5s;
+}
+
+/* Navigation Bar */
+nav {
+    background: #161616;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: background 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    background: #1e90ff;
+    color: #000;
+    border-radius: 5px;
 }
 
 /* Header Section */
@@ -103,6 +153,8 @@ section {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    scroll-margin-top: 55px; 
+}
 }
 
 section.aos-animate {
@@ -170,21 +222,7 @@ h3 {
 /* logo Picture */
 .logo-pic {
     text-align: center;
-}
-
-/* Contact Section */
-#contact {
-    text-align: center;
-}
-
-#contact a {
-    color: #ffffff;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-#contact a:hover {
-    color: #1e90ff;
+    margin-bottom: -100px;
 }
 
 /* Footer */
@@ -205,4 +243,143 @@ footer {
 [data-aos="fade-up"].aos-animate {
     transform: translateY(0);
     opacity: 1;
+}
+
+/* Contact Form Styles */
+#contact {
+    text-align: center;
+}
+
+#contact a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+#contact a:hover {
+    color: #1e90ff;
+}
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form .form-group {
+    margin-bottom: 15px;
+}
+
+.contact-form label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #fff;
+    text-align: left;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    text-align: left;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    height: 120px;
+}
+
+.contact-form .submit-btn {
+    display: block;
+    background-color: #1e90ff;
+    color: #fff;
+    padding: 15px 20px;
+    font-size: 1.5rem;
+    margin: 20px auto;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.contact-form .submit-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Light Mode Styles */
+body.light-mode {
+    background: #f5f5f5;
+    color: #000;
+}
+
+body.light-mode nav {
+    background: #fff;
+    color: #000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode nav ul li a {
+    color: #000;
+}
+
+body.light-mode nav ul li a:hover {
+    background: #ddd;
+    color: #000;
+}
+
+body.light-mode header {
+    background: #fff;
+    color: #000;
+}
+
+/* Light Mode Skills Background Fix */
+body.light-mode #skills li {
+    background: #e0e0e0;
+    color: #000;
+}
+
+/* Light Mode Headers */
+body.light-mode h3 {
+    color: #666;
+}
+
+body.light-mode .project-card {
+    background: #e0e0e0;
+}
+
+body.light-mode .contact-form {
+    background: #fff;
+    color: #000;
+}
+
+body.light-mode .contact-form input,
+body.light-mode .contact-form textarea {
+    background: #f9f9f9;
+    color: #000;
+    border: 1px solid #ccc;
+}
+
+body.light-mode .submit-btn {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+body.light-mode .submit-btn:hover {
+    background-color: #45a049;
+}
+body.light-mode #contact a {
+    color: #666; /* Light gray for email link */
+}
+
+body.light-mode #contact a:hover {
+    color: #1e90ff; /* Keep hover effect consistent */
 }

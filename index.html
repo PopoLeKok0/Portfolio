@@ -6,9 +6,20 @@
     <title>Company</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 <body>
+    <nav>
+        <div class="logo great-vibes-regular">M . B</div>
+        <ul>
+            <li><a href="#about">About me</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact me</a></li>
+        </ul>
+        <button id="theme-switch" class="theme-switch">Light Mode</button>
+    </nav>
+    
     <!-- Intro Section -->
     <div class="intro">
         <h1 class="welcome-header">
@@ -64,8 +75,25 @@
         </section>
         <section id="contact" data-aos="fade-up">
             <h3>Contact</h3>
-            <p>Email: <a href="mailto:Mouadbenlahbibca@gmail.com">Mouadbenlahbibca@gmail.com</a></p>
-            <p>Phone: +1 819-328-0382</p>
+                <form action="https://formspree.io/f/xrbbykpj" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Your message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send</button>
+                <p>Email: <a href="mailto:Mouadbenlahbibca@gmail.com">Mouadbenlahbibca@gmail.com</a></p>
+                <p>Phone: +1 819-328-0382</p>
+            </section>
+            
+            
         </section>
     </main>
 
@@ -79,5 +107,13 @@
     </script>
     <script src="welcome.js"></script>
     <script src="app.js"></script>
+    <script>
+        const themeSwitch = document.getElementById('theme-switch');
+        themeSwitch.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            themeSwitch.textContent = document.body.classList.contains('light-mode') ? 'Dark Mode' : 'Light Mode';
+        });
+    </script>
 </body>
+
 </html>
