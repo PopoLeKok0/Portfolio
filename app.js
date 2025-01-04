@@ -1,5 +1,7 @@
 let intro = document.querySelector('.intro');
 let welcomeSpan = document.querySelectorAll('.welcome');
+let logo_small = document.querySelector('.logo_small');  
+let logo_big = document.querySelector('.logo_big');
 
 // Ensure everything runs after DOM content is loaded
 window.addEventListener('DOMContentLoaded', () => {
@@ -46,4 +48,15 @@ themeSwitch.addEventListener('click', () => {
 
     themeSwitch.querySelector('img').src = themeIcon;
     themeSwitch.querySelector('img').alt = isLightMode ? 'Dark Mode' : 'Light Mode';
+    if (isLightMode) {
+        logo_small.src = 'logos/light_logo_green_small.png';  // Light theme small logo
+        logo_small.alt = 'Light Logo Green Small';
+        logo_big.src = 'logos/light_logo_green_big.png';  // Light theme big logo
+        logo_big.alt = 'Light Logo Green Big';
+    } else {
+        logo_small.src = 'logos/dark_logo_blue_small.png';   // Dark theme small logo
+        logo_small.alt = 'Dark Logo Blue Small';
+        logo_big.src = 'logos/dark_logo_blue_big.png';   // Dark theme big logo
+        logo_big.alt = 'Dark Logo Blue Big';
+    }
 });

@@ -315,6 +315,7 @@ footer {
 }
 
 /* Light Mode Styles */
+
 body.light-mode {
     background: #f5f5f5;
     color: #000;
@@ -477,4 +478,7 @@ body.light-mode .custom-logo {
   100% {
     width: 0; /* Pause before typing starts again */
   }
+}
+nav li {
+    list-style-type: none;  
 }
