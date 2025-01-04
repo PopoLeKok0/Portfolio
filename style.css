@@ -436,3 +436,45 @@ body.light-mode .custom-logo {
     color: #b5c7eb; /* Misty blue */
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
+.container {
+  display: inline-block;
+}
+
+.typing-effect {
+  font-family: monospace; /* Optional for typewriter style */
+  letter-spacing: 1px;
+  border-right: 5px solid; /* Cursor */
+  white-space: nowrap; /* Prevent wrapping */
+  overflow: hidden; /* Hide text overflow */
+  display: inline-block; /* Fit the width of the text */
+
+  /* Animation starts after 2.7s and repeats every 10s */
+  animation: typing-erasing 11s steps(16, end) 2.75s infinite,
+             cursor-blink 0.4s step-end infinite alternate 2.75s;
+}
+
+/* Cursor blinking effect */
+@keyframes cursor-blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Typing and erasing effect */
+@keyframes typing-erasing {
+  0% {
+    width: 0; /* Start typing */
+  }
+  25% {
+    width: 100%; /* Typing completed */
+  }
+  75% {
+    width: 100%; /* Pause before erasing */
+  }
+  95% {
+    width: 0; /* Slow erasing */
+  }
+  100% {
+    width: 0; /* Pause before typing starts again */
+  }
+}
