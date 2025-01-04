@@ -441,7 +441,7 @@ body.light-mode .custom-logo {
 }
 
 .typing-effect {
-  font-family: monospace; /* Optional for typewriter style */
+  font-family: 'Courier Prime', monospace; 
   letter-spacing: 1px;
   border-right: 5px solid; /* Cursor */
   white-space: nowrap; /* Prevent wrapping */
