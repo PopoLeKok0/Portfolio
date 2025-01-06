@@ -325,6 +325,15 @@ footer {
 #contact a:hover {
     color: #b5c7eb;
 }
+footer a {
+    text-decoration: none; /* Removes the underline */
+    color: inherit;        /* Makes the link color the same as the surrounding text */
+}
+
+footer a:hover {
+    color: #b5c7eb;        /* Changes color on hover */
+}
+
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
