@@ -161,24 +161,52 @@ section.aos-animate {
     transform: translateY(0);
 }
 
-/* Skills Section */
 #skills {
     text-align: center;
     padding: 20px;
 }
 
+#skills h3 {
+    color: #ffffff;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+.skills-container {
+    display: flex; /* Flexbox for responsiveness */
+    justify-content: space-between; /* Ensures columns are evenly spaced */
+    gap: 20px; /* Space between columns */
+    flex-wrap: wrap; /* Allows columns to wrap on smaller screens */
+    max-width: 1000px; /* Limits the overall width */
+    margin: 0 auto; /* Centers the content */
+}
+
+.skills-column {
+    flex: 1; /* All columns take equal space */
+    min-width: 350px; /* Ensures columns don’t shrink too much */
+    padding: 15px;
+    background: rgba(40, 40, 40, 0.9); /* Distinct background color */
+    border-radius: 8px; /* Rounded corners */
+    text-align: left; /* Aligns content to the left */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between elements in the column */
+}
+
 #skills ul {
     list-style: none;
     padding: 0;
-    margin: 20px auto;
-    max-width: 800px;
+    margin: 0;
 }
 
 #skills li {
+    display: flex; /* Aligns icons and text horizontally */
+    align-items: center; /* Vertically aligns items */
+    justify-content: flex-start; /* Aligns content to the left */
     margin: 10px 0;
     padding: 10px;
-    background: rgba(61, 60, 60, 0.7);
-    border-radius: 5px;
+    background: rgba(61, 60, 60, 0.7); /* Distinct block background */
+    border-radius: 5px; /* Rounded block edges */
     transition: transform 0.2s;
 }
 
@@ -186,12 +214,52 @@ section.aos-animate {
     transform: translateX(10px);
 }
 
-h3 {
-    color: #ffffff;
-    font-size: 1.8em;
-    margin-bottom: 20px;
-    text-align: center;
+.icon {
+    flex-shrink: 0; /* Prevent icons from shrinking */
+    width: 3.5em; /* Icon size */
+    height: 3.5em;
+    margin-right: 10px; /* Space between icon and text */
 }
+
+.section-title {
+    flex: 0 0 auto; /* Prevents titles from wrapping */
+    margin-right: 10px; /* Space after the title */
+    white-space: nowrap; /* Ensures no wrapping */
+    color: #ffffff; /* White text */
+    font-weight: bold; /* Emphasizes the title */
+}
+
+.skills-content {
+    flex: 1; /* Text takes up remaining space */
+    white-space: nowrap; /* Prevent wrapping */
+    color: #cccccc; /* Softer text color for readability */
+    font-style: italic; /* Polished look */
+    overflow: visible; /* Ensures all text is displayed */
+}
+
+/* Adjustments for Competencies */
+.competencies-title {
+    min-width: max-content; /* Ensures titles fit their content */
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+    .skills-container {
+        flex-direction: column; /* Stacks columns vertically */
+    }
+
+    .skills-column {
+        flex: 1 1 100%; /* Columns take full width */
+        margin-bottom: 20px;
+    }
+
+    .icon {
+        width: 3em; /* Smaller icon size */
+        height: 3em;
+    }
+}
+
+
 
 /* Project Grid */
 .project-grid {
