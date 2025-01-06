@@ -166,7 +166,7 @@ section.aos-animate {
     padding: 20px;
 }
 
-#skills h3 {
+body h3 {
     color: #ffffff;
     font-size: 1.8em;
     margin-bottom: 20px;
@@ -177,7 +177,7 @@ section.aos-animate {
     justify-content: space-between; /* Ensures columns are evenly spaced */
     gap: 20px; /* Space between columns */
     flex-wrap: wrap; /* Allows columns to wrap on smaller screens */
-    max-width: 1000px; /* Limits the overall width */
+    max-width: 1050px; /* Limits the overall width */
     margin: 0 auto; /* Centers the content */
 }
 
@@ -185,7 +185,7 @@ section.aos-animate {
     flex: 1; /* All columns take equal space */
     min-width: 350px; /* Ensures columns don’t shrink too much */
     padding: 15px;
-    background: rgba(40, 40, 40, 0.9); /* Distinct background color */
+    background: #b5c7eb; /* Distinct background color */
     border-radius: 8px; /* Rounded corners */
     text-align: left; /* Aligns content to the left */
     display: flex;
@@ -231,7 +231,6 @@ section.aos-animate {
 
 .skills-content {
     flex: 1; /* Text takes up remaining space */
-    white-space: nowrap; /* Prevent wrapping */
     color: #cccccc; /* Softer text color for readability */
     font-style: italic; /* Polished look */
     overflow: visible; /* Ensures all text is displayed */
@@ -420,7 +419,12 @@ body.light-mode header {
     background: #ccd4cf;
     color: #000;
 }
-
+body.light-mode .skills-column {
+    background: #93AD9F /* Distinct background color */
+}
+body.light-mode .skills-content {
+    color: #757575; /* Softer text color for readability */
+}
 /* Light Mode Skills Background Fix */
 body.light-mode #skills li {
     background: #e0e0e0;
