@@ -177,6 +177,34 @@ header .buttons a:hover {
     transform: translateY(-2px);
 }
 
+/* Tooltip buttons*/
+.button-wrapper {
+    position: relative; 
+    display: inline-block; 
+}
+
+.tooltip-buttons {
+    position: absolute;
+    top: 100%; 
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 8px; 
+    background-color: #ffffff; 
+    color: #000000; 
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+    opacity: 0; 
+    pointer-events: none; 
+    transition: opacity 0.3s ease; 
+    z-index: 10; 
+}
+
+.button-wrapper:hover .tooltip-buttons {
+    opacity: 0.8; 
+}
+
 /* Main Content */
 main {
     padding: 20px;
@@ -585,6 +613,8 @@ body.light-mode #contact a:hover {
 nav li {
     list-style-type: none;  
 }
+
+/* Tooltip icons*/
 .icon-container {
     display: flex;
     gap: 10px; 
@@ -595,7 +625,7 @@ nav li {
     display: inline-block;
 }
 
-.tooltip {
+.tooltip-icons {
     position: absolute;
     bottom: 110%; 
     left: 50%;
@@ -612,6 +642,6 @@ nav li {
     z-index: 10;
 }
 
-.icon-wrapper:hover .tooltip {
+.icon-wrapper:hover .tooltip-icons {
     opacity: 0.8;
 }
