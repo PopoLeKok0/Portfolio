@@ -49,14 +49,14 @@ themeSwitch.addEventListener('click', () => {
     themeSwitch.querySelector('img').src = themeIcon;
     themeSwitch.querySelector('img').alt = isLightMode ? 'Dark Mode' : 'Light Mode';
     if (isLightMode) {
-        logo_small.src = 'logos/light_logo_green_small.png';  // Light theme small logo
-        logo_small.alt = 'Light Logo Green Small';
-        logo_big.src = 'logos/light_logo_green_big.png';  // Light theme big logo
-        logo_big.alt = 'Light Logo Green Big';
+        logo_small.src = 'logos/black_logo_green_small.png';  // Light theme small logo
+        logo_small.alt = 'black Logo Green Small';
+        logo_big.src = 'logos/white_logo_green_big.png';  // Light theme big logo
+        logo_big.alt = 'White Logo Green Big';
     } else {
-        logo_small.src = 'logos/dark_logo_blue_small.png';   // Dark theme small logo
-        logo_small.alt = 'Dark Logo Blue Small';
-        logo_big.src = 'logos/dark_logo_blue_big.png';   // Dark theme big logo
-        logo_big.alt = 'Dark Logo Blue Big';
+        logo_small.src = 'logos/white_logo_blue_small.png';   // Dark theme small logo
+        logo_small.alt = 'White Logo Blue Small';
+        logo_big.src = 'logos/white_logo_blue_big.png';   // Dark theme big logo
+        logo_big.alt = 'White Logo Blue Big';
     }
 });

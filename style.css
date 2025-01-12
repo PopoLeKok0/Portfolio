@@ -17,7 +17,7 @@ body {
     margin: 0;
     padding: 0;
     color: #ffffff;
-    background: linear-gradient(to top, #313131, #161616);
+    background: linear-gradient(to top, #4c5265, #212129 );
 }
 body h3 {
     color: #ffffff;
@@ -104,9 +104,24 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background: #b5c7eb;
+    background: #4c5265;
     color: #000;
     border-radius: 5px;
+}
+.video-background {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 101.95%;
+    height: 117.26%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* Header Section */
@@ -142,7 +157,7 @@ header .buttons a {
 }
 
 header .buttons a:hover {
-    background: #b5c7eb;
+    background: #4c5265;
     transform: translateY(-2px);
 }
 
@@ -184,7 +199,7 @@ section.aos-animate {
     flex: 1; /* All columns take equal space */
     min-width: 350px; /* Ensures columns don’t shrink too much */
     padding: 15px;
-    background: #b5c7eb; /* Distinct background color */
+    background: #323949; /* Distinct background color */
     border-radius: 8px; /* Rounded corners */
     text-align: left; /* Aligns content to the left */
     display: flex;
@@ -192,9 +207,7 @@ section.aos-animate {
     gap: 10px; /* Space between elements in the column */
 }
 
-#skills h4 {
-    color: #000000;
-}
+
 
 #skills ul {
     list-style: none;
@@ -392,21 +405,6 @@ footer a:hover {
 .contact-form .submit-btn:hover {
     background-color: #1e90ff;
 }
-.video-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: -1;
-}
-
-.video-background video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 
 /* Light Mode Styles */
 
@@ -444,7 +442,7 @@ body.light-mode #contact a:hover {
 
 body.light-mode header {
     background: #ccd4cf;
-    color: #000;
+    color: #ffffff;
 }
 body.light-mode .skills-column {
     background: #93AD9F /* Distinct background color */
@@ -533,7 +531,7 @@ body.light-mode .custom-logo {
 .logo, .custom-logo {
     font-family: "Great Vibes", serif;
     font-size: 4.5rem;
-    color: #b5c7eb; /* Misty blue */
+    color: #323949; /* Misty blue */
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 .container {
