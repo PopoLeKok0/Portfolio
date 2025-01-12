@@ -24,7 +24,21 @@ body h3 {
     font-size: 1.8em;
     margin-bottom: 20px;
 }
+.intro-background {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 104%;
+    height: 104%;
+    overflow: hidden;
+    z-index: -1;
+}
 
+.intro-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 /* Splash screen styles remain the same */
 .intro {
     position: fixed;
@@ -39,8 +53,8 @@ body h3 {
 
 .welcome-header {
     position: absolute;
-    top: 40%;
-    left: 50%;
+    top: 49%;
+    left: 51%;
     transform: translate(-50%, -50%);
     color: #ffffff;
     font-size: 3rem;
@@ -108,7 +122,7 @@ nav ul li a:hover {
     color: #000;
     border-radius: 5px;
 }
-.video-background {
+.header-background {
     position: absolute;
     top: -20px;
     left: -20px;
@@ -118,7 +132,7 @@ nav ul li a:hover {
     z-index: -1;
 }
 
-.video-background video {
+.header-background video {
     width: 100%;
     height: 100%;
     object-fit: cover;
