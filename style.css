@@ -67,7 +67,7 @@ body h3 {
 
 /* Navigation Bar */
 nav {
-    background: #161616;
+    background: #212129;
     color: #fff;
     padding: 10px 20px;
     display: flex;
@@ -284,7 +284,7 @@ section.aos-animate {
 }
 
 .project-card {
-    background: #3d3c3c;
+    background: #323949;
     padding: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
