@@ -9,8 +9,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => {
         console.log("Adding 'active' class to welcome letters");
-
-        // Add 'active' class to each span in sequence
         welcomeSpan.forEach((span, idx) => {
             setTimeout(() => {
                 console.log(`Adding active to: ${span.textContent}`);
@@ -20,22 +18,20 @@ window.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(() => {
             console.log("Starting fade out");
-
-            // Remove 'active' class and add 'fade' class to each span in sequence
             welcomeSpan.forEach((span, idx) => {
                 setTimeout(() => {
                     console.log(`Removing active and adding fade to: ${span.textContent}`);
                     span.classList.remove('active');
                     span.classList.add('fade');
-                }, (idx + 1) * 50); // each letter fades out 50ms apart
+                }, (idx + 1) * 50); 
             });
-        }, 2000); // After 2 seconds, start fading out
+        }, 2000); 
 
         setTimeout(() => {
             console.log("Sliding out the intro screen");
             // Slide out the intro screen after the animation
-            intro.style.top = '-100vh'; // Move the intro screen up to hide it
-        }, 2300); // After 2.3 seconds, start sliding out
+            intro.style.top = '-100vh'; 
+        }, 2300); // After 2.3 seconds
 
     });
 });
@@ -49,14 +45,14 @@ themeSwitch.addEventListener('click', () => {
     themeSwitch.querySelector('img').src = themeIcon;
     themeSwitch.querySelector('img').alt = isLightMode ? 'Dark Mode' : 'Light Mode';
     if (isLightMode) {
-        logo_small.src = 'logos/black_logo_green_small.png';  // Light theme small logo
+        logo_small.src = 'logos/black_logo_green_small.png'; 
         logo_small.alt = 'black Logo Green Small';
-        logo_big.src = 'logos/white_logo_green_big.png';  // Light theme big logo
+        logo_big.src = 'logos/white_logo_green_big.png'; 
         logo_big.alt = 'White Logo Green Big';
     } else {
-        logo_small.src = 'logos/white_logo_blue_small.png';   // Dark theme small logo
+        logo_small.src = 'logos/white_logo_blue_small.png';   
         logo_small.alt = 'White Logo Blue Small';
-        logo_big.src = 'logos/white_logo_blue_big.png';   // Dark theme big logo
+        logo_big.src = 'logos/white_logo_blue_big.png'; 
         logo_big.alt = 'White Logo Blue Big';
     }
 });

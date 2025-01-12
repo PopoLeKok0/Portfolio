@@ -1,17 +1,20 @@
-/* Global Styles */
-* {
+/* Global Style */
+* { 
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
+
+/* Used !important to override the global style */
 .great-vibes-regular {
-    font-family: "Great Vibes", serif !important; /* Use !important to override global styles */
+    font-family: "Great Vibes", serif !important; 
     font-weight: 400;
     font-style: normal;
-    font-size: 2.5rem; /* Adjust the size as needed */
+    font-size: 2.5rem; 
 }
 
+/* Body */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -24,6 +27,8 @@ body h3 {
     font-size: 1.8em;
     margin-bottom: 20px;
 }
+
+/* intro section */
 .intro-background {
     position: absolute;
     top: -20px;
@@ -39,7 +44,7 @@ body h3 {
     height: 100%;
     object-fit: cover;
 }
-/* Splash screen styles remain the same */
+
 .intro {
     position: fixed;
     z-index: 1;
@@ -51,6 +56,7 @@ body h3 {
     transition: 1s;
 }
 
+/* intro text */
 .welcome-header {
     position: absolute;
     top: 49%;
@@ -93,11 +99,6 @@ nav {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-nav .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
 nav ul {
     list-style: none;
     display: flex;
@@ -122,6 +123,8 @@ nav ul li a:hover {
     color: #000;
     border-radius: 5px;
 }
+
+/* Header Section */
 .header-background {
     position: absolute;
     top: -20px;
@@ -138,7 +141,6 @@ nav ul li a:hover {
     object-fit: cover;
 }
 
-/* Header Section */
 header {
     background: #161616;
     color: #fff;
@@ -195,33 +197,32 @@ section.aos-animate {
     transform: translateY(0);
 }
 
+/* skils section */
 #skills {
     text-align: center;
     padding: 20px;
 }
 
 .skills-container {
-    display: flex; /* Flexbox for responsiveness */
-    justify-content: space-between; /* Ensures columns are evenly spaced */
-    gap: 20px; /* Space between columns */
-    flex-wrap: wrap; /* Allows columns to wrap on smaller screens */
-    max-width: 1050px; /* Limits the overall width */
-    margin: 0 auto; /* Centers the content */
+    display: flex; 
+    justify-content: space-between; 
+    gap: 20px; 
+    flex-wrap: wrap; 
+    max-width: 1050px; 
+    margin: 0 auto; 
 }
 
 .skills-column {
-    flex: 1; /* All columns take equal space */
-    min-width: 350px; /* Ensures columns don’t shrink too much */
+    flex: 1; 
+    min-width: 350px;
     padding: 15px;
-    background: #323949; /* Distinct background color */
-    border-radius: 8px; /* Rounded corners */
-    text-align: left; /* Aligns content to the left */
+    background: #323949; 
+    border-radius: 8px; 
+    text-align: left; 
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Space between elements in the column */
+    gap: 10px; /
 }
-
-
 
 #skills ul {
     list-style: none;
@@ -230,13 +231,13 @@ section.aos-animate {
 }
 
 #skills li {
-    display: flex; /* Aligns icons and text horizontally */
-    align-items: center; /* Vertically aligns items */
-    justify-content: flex-start; /* Aligns content to the left */
+    display: flex; 
+    align-items: center; 
+    justify-content: flex-start; 
     margin: 10px 0;
     padding: 10px;
-    background: rgba(61, 60, 60, 0.7); /* Distinct block background */
-    border-radius: 5px; /* Rounded block edges */
+    background: rgba(61, 60, 60, 0.7); 
+    border-radius: 5px; 
     border: 0.1px solid #080a1d;
     transition: transform 0.2s;
 }
@@ -246,48 +247,49 @@ section.aos-animate {
 }
 
 .icon {
-    flex-shrink: 0; /* Prevent icons from shrinking */
-    width: 3.5em; /* Icon size */
+    flex-shrink: 0; 
+    width: 3.5em; 
     height: 3.5em;
-    margin-right: 10px; /* Space between icon and text */
+    margin-right: 10px; 
 }
 
 .section-title {
-    flex: 0 0 auto; /* Prevents titles from wrapping */
-    margin-right: 10px; /* Space after the title */
-    white-space: nowrap; /* Ensures no wrapping */
-    color: #ffffff; /* White text */
-    font-weight: bold; /* Emphasizes the title */
+    flex: 0 0 auto; 
+    margin-right: 10px; 
+    white-space: nowrap; 
+    color: #ffffff; 
+    font-weight: bold; 
 }
 
 .skills-content {
-    flex: 1; /* Text takes up remaining space */
-    color: #cccccc; /* Softer text color for readability */
-    font-style: italic; /* Polished look */
-    overflow: visible; /* Ensures all text is displayed */
+    flex: 1; 
+    color: #cccccc;
+    font-style: italic;
+    overflow: visible; 
 }
 
-/* Adjustments for Competencies */
+
 .competencies-title {
-    min-width: max-content; /* Ensures titles fit their content */
+    min-width: max-content; 
 }
 
 /* Media Query for Smaller Screens */
 @media (max-width: 768px) {
     .skills-container {
-        flex-direction: column; /* Stacks columns vertically */
+        flex-direction: column; 
     }
 
     .skills-column {
-        flex: 1 1 100%; /* Columns take full width */
+        flex: 1 1 100%;
         margin-bottom: 20px;
     }
 
     .icon {
-        width: 3em; /* Smaller icon size */
+        width: 3em;
         height: 3em;
     }
 }
+
 /* Project Grid */
 .project-grid {
     display: grid;
@@ -317,19 +319,12 @@ section.aos-animate {
 }
 
 .project-card img {
-    width: 30px;  /* Adjust the icon size */
+    width: 30px;  
     height: 30px;
 }
 
 .project-card:hover {
     transform: scale(1.05);
-}
-
-
-/* logo Picture */
-.logo-pic {
-    text-align: center;
-    margin-bottom: 5px;
 }
 
 /* Footer */
@@ -367,12 +362,12 @@ footer {
     color: #b5c7eb;
 }
 footer a {
-    text-decoration: none; /* Removes the underline */
-    color: inherit;        /* Makes the link color the same as the surrounding text */
+    text-decoration: none; 
+    color: inherit; /* Makes the link color the same as the surrounding text */
 }
 
 footer a:hover {
-    color: #b5c7eb;        /* Changes color on hover */
+    color: #b5c7eb;      
 }
 
 .contact-form {
@@ -432,7 +427,6 @@ footer a:hover {
 }
 
 /* Light Mode Styles */
-
 body.light-mode {
     background: linear-gradient(to top, #ccd4cf, #ffffff);
     color: #000;
@@ -456,13 +450,13 @@ body.light-mode nav ul li a:hover {
 
 /* Light Mode Buttons Hover */
 body.light-mode .buttons a:hover {
-    background: #93AD9F; /* Misty green */
-    transform: translateY(-2px); /* Keep existing hover effect */
+    background: #93AD9F; 
+    transform: translateY(-2px);
 }
 
 /* Light Mode Contact Links Hover */
 body.light-mode #contact a:hover {
-    color: #93AD9F; /* Misty green */
+    color: #93AD9F; 
 }
 
 body.light-mode header {
@@ -470,11 +464,12 @@ body.light-mode header {
     color: #ffffff;
 }
 body.light-mode .skills-column {
-    background: #93AD9F /* Distinct background color */
+    background: #93AD9F 
 }
 body.light-mode .skills-content {
-    color: #757575; /* Softer text color for readability */
+    color: #757575; 
 }
+
 /* Light Mode Skills Background Fix */
 body.light-mode #skills li {
     background: #e0e0e0;
@@ -523,20 +518,13 @@ body.light-mode #contact a {
 body.light-mode #contact a:hover {
     color: #b5c7eb;
 }
-/* Logo color in light mode */
-body.light-mode .logo, 
-body.light-mode .custom-logo {
-    color: #93AD9F; /* Misty green */
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* Adjust text shadow for better contrast */
-}
-
 
 /* Theme Switch Button */
 .theme-switch {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: transparent; /* No background to highlight the image */
+    background-color: transparent; 
     border: none;
     display: flex;
     align-items: center;
@@ -556,25 +544,13 @@ body.light-mode .custom-logo {
     display: block;
 }
 
-
-/* Logo */
-.logo, .custom-logo {
-    font-family: "Great Vibes", serif;
-    font-size: 4.5rem;
-    color: #323949; /* Misty blue */
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-}
-.container {
-  display: inline-block;
-}
-
 .typing-effect {
   font-family: 'Courier Prime', monospace; 
   letter-spacing: 1px;
-  border-right: 5px solid; /* Cursor */
-  white-space: nowrap; /* Prevent wrapping */
-  overflow: hidden; /* Hide text overflow */
-  display: inline-block; /* Fit the width of the text */
+  border-right: 5px solid;
+  white-space: nowrap; 
+  overflow: hidden; 
+  display: inline-block; 
 
   /* Animation starts after 2.7s and repeats every 10s */
   animation: typing-erasing 11s steps(16, end) 2.75s infinite,
@@ -591,21 +567,51 @@ body.light-mode .custom-logo {
 /* Typing and erasing effect */
 @keyframes typing-erasing {
   0% {
-    width: 0; /* Start typing */
+    width: 0; 
   }
   25% {
-    width: 100%; /* Typing completed */
+    width: 100%; 
   }
   75% {
-    width: 100%; /* Pause before erasing */
+    width: 100%; 
   }
   95% {
-    width: 0; /* Slow erasing */
+    width: 0; 
   }
   100% {
-    width: 0; /* Pause before typing starts again */
+    width: 0; 
   }
 }
 nav li {
     list-style-type: none;  
+}
+.icon-container {
+    display: flex;
+    gap: 10px; 
+}
+
+.icon-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip {
+    position: absolute;
+    bottom: 110%; 
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 10;
+}
+
+.icon-wrapper:hover .tooltip {
+    opacity: 0.8;
 }
