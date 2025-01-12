@@ -223,6 +223,7 @@ section.aos-animate {
     padding: 10px;
     background: rgba(61, 60, 60, 0.7); /* Distinct block background */
     border-radius: 5px; /* Rounded block edges */
+    border: 0.1px solid #080a1d;
     transition: transform 0.2s;
 }
 
@@ -454,15 +455,17 @@ body.light-mode .skills-content {
 body.light-mode #skills li {
     background: #e0e0e0;
     color: #000;
+    border: 0.1px solid #1e5727;
 }
 
 /* Light Mode Headers */
 body.light-mode h3 {
-    color: #666;
+    color: #000000;
 }
 
 body.light-mode .project-card {
-    background: #e0e0e0;
+    background: #93AD9F;
+    border: 1px solid #000000;
 }
 
 body.light-mode .contact-form {
@@ -475,6 +478,9 @@ body.light-mode .contact-form textarea {
     background: #f9f9f9;
     color: #000;
     border: 1px solid #ccc;
+}
+body.light-mode .contact-form label {  
+    color: #000000;
 }
 
 body.light-mode .submit-btn {
