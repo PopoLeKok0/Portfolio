@@ -573,42 +573,45 @@ body.light-mode #contact a:hover {
 }
 
 .typing-effect {
-  font-family: 'Courier Prime', monospace; 
-  letter-spacing: 1px;
-  border-right: 5px solid;
-  white-space: nowrap; 
-  overflow: hidden; 
-  display: inline-block; 
-
-  /* Animation starts after 2.7s and repeats every 10s */
-  animation: typing-erasing 11s steps(16, end) 2.75s infinite,
-             cursor-blink 0.4s step-end infinite alternate 2.75s;
-}
-
-/* Cursor blinking effect */
-@keyframes cursor-blink {
-  50% {
-    border-color: transparent;
+    font-family: 'Courier Prime', monospace; 
+    letter-spacing: 1px;
+    border-right: 5px solid;
+    white-space: nowrap; 
+    overflow: hidden; 
+    display: inline-block;
+    width: fit-content;
+    
+    /* Reduced the typing-erasing duration from 11s to 8s */
+    animation: 
+      typing-erasing 8s steps(17, end) 2.75s infinite,
+      cursor-blink 0.7s step-end infinite;
   }
-}
-
-/* Typing and erasing effect */
+  
+  @keyframes cursor-blink {
+    from, to { 
+      border-color: white;
+    }
+    50% {
+      border-color: transparent;
+    }
+  }
+  
 @keyframes typing-erasing {
-  0% {
-    width: 0; 
-  }
-  25% {
-    width: 100%; 
-  }
-  75% {
-    width: 100%; 
-  }
-  95% {
-    width: 0; 
-  }
-  100% {
-    width: 0; 
-  }
+    0% {
+        width: 0;
+    }
+    25% {
+        width: 17ch;
+    }
+    75% {
+        width: 17ch;
+    }
+    95% {
+        width: 0;
+    }
+    100% {
+        width: 0;
+}
 }
 nav li {
     list-style-type: none;  
