@@ -288,9 +288,6 @@ section.aos-animate {
         height: 3em;
     }
 }
-
-
-
 /* Project Grid */
 .project-grid {
     display: grid;
@@ -312,9 +309,22 @@ section.aos-animate {
     margin-bottom: 10px;
 }
 
+.project-card a {
+    display: flex;
+    justify-content: center;  
+    align-items: center;     
+    margin-top: 10px;         
+}
+
+.project-card img {
+    width: 30px;  /* Adjust the icon size */
+    height: 30px;
+}
+
 .project-card:hover {
     transform: scale(1.05);
 }
+
 
 /* logo Picture */
 .logo-pic {
