@@ -1,11 +1,13 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import google.generativeai as genai
+import os
 
 app = Flask(__name__)
-CORS(app)
 
-# Define the chat function
+# Configure CORS to allow requests from GitHub Pages domain
+CORS(app, resources={r"/*": {"origins": "https://popolekok0.github.io"}})
+
 def chat_with_gemini(user_input, api_key):
     genai.configure(api_key=api_key)
 
@@ -26,16 +28,19 @@ def chat_with_gemini(user_input, api_key):
     response = chat_session.send_message(user_input)
     return response.text
 
-# Flask route
 @app.route('/chat', methods=['POST'])
 def chat():
     user_message = request.json.get('message')
-    api_key = "AIzaSyBuMEdQaZoxffJ2YX1LyrJpnlABa6OhkRU"  # Your API key
+    api_key = os.environ.get('GEMINI_API_KEY')  
     try:
         response = chat_with_gemini(user_message, api_key)
         return jsonify({'response': response})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+@app.route('/')
+def health_check():
+    return "Server is running!"
+
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
