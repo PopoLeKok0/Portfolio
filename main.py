@@ -3,9 +3,11 @@ from flask_cors import CORS
 import google.generativeai as genai
 import os
 import sys
+from dotenv import load_dotenv
 
+# Load environment variables from .env file
+load_dotenv('/home/Popolekok0/my_flask_app/api_key.env')
 app = Flask(__name__)
-
 # Configure CORS to allow requests from GitHub Pages domain
 CORS(app, resources={r"/*": {"origins": "https://popolekok0.github.io"}})
 
@@ -32,7 +34,7 @@ def chat_with_gemini(user_input, api_key):
 @app.route('/chat', methods=['POST'])
 def chat():
     user_message = request.json.get('message')
-    api_key = os.environ.get('GEMINI_API_KEY')  
+    api_key = os.environ.get('GEMINI_API_KEY')
     try:
         response = chat_with_gemini(user_message, api_key)
         return jsonify({'response': response})
