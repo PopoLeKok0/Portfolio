@@ -5,8 +5,7 @@ import os
 import sys
 
 app = Flask(__name__)
-# Configure CORS to allow requests from GitHub Pages domain
-CORS(app, resources={r"/*": {"origins": "https://popolekok0.github.io/Portfolio/"}})
+CORS(app, resources={r"/*": {"origins": "https://popolekok0.github.io"}})
 
 def chat_with_gemini(user_input, api_key):
     genai.configure(api_key=api_key)
@@ -43,10 +42,10 @@ def health_check():
     return "Server is running!"
 
 if __name__ == "__main__":
-    port = 5000  # Default port
+    port = 5000
     if len(sys.argv) > 1:
         try:
-            port = int(sys.argv[1])  # Get port from command line
+            port = int(sys.argv[1])
         except ValueError:
             print("Invalid port number. Using default port 5000.")
     app.run(host='0.0.0.0', port=port)
