@@ -1,8 +1,13 @@
+import os
+import sys
+
+site_packages = '/home/Popolekok0/.local/lib/python3.10/site-packages'
+if site_packages not in sys.path:
+    sys.path.append(site_packages)
+
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import google.generativeai as genai
-import os
-import sys
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "https://popolekok0.github.io"}})
