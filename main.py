@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import google.generativeai as genai
 import os
+import sys
 
 app = Flask(__name__)
 
@@ -43,4 +44,10 @@ def health_check():
     return "Server is running!"
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+    port = 5000  # Default port
+    if len(sys.argv) > 1:
+        try:
+            port = int(sys.argv[1])  # Get port from command line
+        except ValueError:
+            print("Invalid port number. Using default port 5000.")
+    app.run(host='0.0.0.0', port=port)
