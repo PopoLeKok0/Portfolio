@@ -25,7 +25,13 @@ body {
 body h3 {
     color: #ffffff;
     font-size: 1.8em;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.h3-title-AI{
+    font-family: "Pixelify Sans", serif !important; 
+    font-size: 30px;
+    text-align: center;
 }
 
 /* intro section */
@@ -116,6 +122,19 @@ nav ul li a {
     text-decoration: none;
     padding: 5px 10px;
     transition: background 0.3s, color 0.3s;
+}
+.nav-AI{
+    font-family: "Pixelify Sans", serif !important; 
+    font-size: 18px;
+    background: #4c5265;
+    border-radius: 5px;
+}
+.light-mode .nav-AI:hover,
+.nav-AI:hover{
+    color: #5e0061;
+}
+.light-mode .nav-AI{
+    background: #93AD9F;
 }
 
 nav ul li a:hover {
@@ -435,7 +454,6 @@ footer a:hover {
     resize: vertical;
     height: 120px;
 }
-
 .contact-form .submit-btn {
     display: block;
     background-color: #4c7fe6;
@@ -472,7 +490,7 @@ body.light-mode nav ul li a {
 
 body.light-mode nav ul li a:hover {
     background: #93AD9F; /* Misty green */
-    color: #000;
+    color: #ffffff;
     border-radius: 5px;
 }
 
@@ -529,12 +547,13 @@ body.light-mode .contact-form textarea {
 body.light-mode .contact-form label {  
     color: #000000;
 }
-
+.light-mode .chat-send-btn,
 body.light-mode .submit-btn {
     background-color: #53b480;
     color: #fff;
 }
 
+.light-mode .chat-send-btn:hover,
 body.light-mode .submit-btn:hover {
     background-color: #4caf50 ;
 }
@@ -545,6 +564,19 @@ body.light-mode #contact a {
 
 body.light-mode #contact a:hover {
     color: #b5c7eb;
+}
+
+/* Light mode styles for chat */
+body.light-mode .chat-container {
+    background: rgba(147, 173, 159, 0.1);
+}
+
+body.light-mode .ai-message {
+    background: #93AD9F;
+}
+
+body.light-mode .user-message {
+    background: #53b480;
 }
 
 /* Theme Switch Button */
@@ -647,4 +679,70 @@ nav li {
 
 .icon-wrapper:hover .tooltip-icons {
     opacity: 0.8;
+}
+
+/* Mouad AI section */
+.chat-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.chat-messages {
+    height: 400px;
+    overflow-y: auto;
+    padding: 20px;
+    margin-bottom: 20px;
+   
+}
+
+.message {
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    max-width: 80%;
+}
+
+.user-message {
+    background: #4c7fe6;
+    color: white;
+    margin-left: auto;
+    font-size: 15px;
+}
+
+.ai-message {
+    background: #323949;
+    color: white;
+    font-family: "Jersey 20", serif !important; 
+    font-size: 18px;
+}
+
+.chat-input-container {
+    display: flex;
+    gap: 10px;
+}
+
+#chat-input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.chat-send-btn {
+    padding: 10px 20px;
+    background: #4c7fe6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.chat-send-btn:hover {
+    background: #1e90ff;
 }
