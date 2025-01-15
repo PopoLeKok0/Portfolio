@@ -2,79 +2,226 @@ async function sendMessage(message) {
     try {
         // Store both resumes as context
         const englishResume = `My resume in english: 
-\\documentclass{resume} % Use the custom resume.cls style
-\\usepackage[left=0.7in,top=0.4in,right=0.7in,bottom=0.5in]{geometry} % Document margins
-\\usepackage{hyperref}
-
-%----------------------------------------------------------------------------------------
-%   DOCUMENT START
-%----------------------------------------------------------------------------------------
-\\name{Mouad Ben lahbib} % Your name
-
+\\name{Mouad Ben lahbib}
 \\address{Ottawa, K1S, Canada}
-
-\\address{\\url{http://github.com/PopoLeKok0} \\\\ \\url{http://linkedin.com/in/mouadbenlahbib}} % Your LinkedIn and GitHub
-
+\\address{\\url{http://github.com/PopoLeKok0} \\\\ \\url{http://linkedin.com/in/mouadbenlahbib}}
 \\address{+1 819-328-0382 \\\\ mbenl010@uottawa.ca}
 
 \\begin{document}
 
-%----------------------------------------------------------------------------------------
-%   SKILLS SECTION
-%----------------------------------------------------------------------------------------
-
 \\begin{rSection}{Skills}
-\\begin{tabular}{ @{} >{\\bfseries}l @{\\hspace{8ex}} l }
+\\begin{tabular}{ @{} >{\\bfseries}l @{\hspace{8ex}} l }
 Languages & English, French, Arabic – All Native/Bilingual Proficiency\\\\
 Programming & Python, Java, VHDL, Verilog, SystemC, C#, Git\\\\
 Development & Software Development, Algorithm Design, Data Structures, Debugging\\\\
 Soft Skills & Problem-solving, Teamwork, Time Management, Communication\\\\
 \\end{tabular}
-\\end{rSection}`;  // Continue with rest of English resume...
+\\end{rSection}
+
+\\begin{rSection}{Education}
+\\textbf{University of Ottawa, Ottawa, Canada} \\hfill September 2021 - May 2025 (Expected)\\\\
+Bachelor of Computer Engineering
+\\begin{itemize}
+    \\item Admitted with the Differential Tuition Fee Exemption Scholarship (\$38,000 yearly). 
+    \\item Jean-Pierre Martin Memorial Scholarship granted for meritorious students enrolled in the Faculty of Engineering (\$1000).
+    \\item Developed a traffic light controller using VHDL and FSM, created the "Mealer" app for local cooks in Java, implemented Tic-tac-toe and Old Maid card games, applied DBscan for object detection, and engineered a UART design using VHDL for FPGA implementation.
+\\end{itemize}
+\\end{rSection}
+\\begin{rSection}{Work Experience}
+\\textbf{IT Instructor (Co-op)} \\hfill September 2024 - December 2024\\\\
+University of Ottawa \\hfill Ottawa, Canada
+\\begin{itemize}
+    \\item Trained educators in coding, technology integration, and advanced tools like 3D printers, VR headsets, and robotics.
+    \\item Delivered STEM workshops in French and English, focusing on coding and engineering principles for youth.
+    \\item Developed and implemented technical curriculum, applying skills in Python, Java, and engineering design to enhance educational activities.
+\\end{itemize}
+
+\\textbf{Computer Scientist Intern (Co-op)} \\hfill June 2023 - September 2023\\\\
+Nidal Info \\hfill Rabat, Morocco
+\\begin{itemize}
+    \\item Assisted customers in resolving network infrastructure issues.
+    \\item Optimized Telecoms and IT (routers, switches, PABX, IPBX, PCs, printers).
+    \\item Created a tracking tool in collaboration with the IT group.
+\\end{itemize}
+
+\\textbf{Bilingual Sales Representative} \\hfill June 2024 - Present\\\\
+Pragma \\hfill Longueuil, Quebec, Canada
+\\begin{itemize}
+    \\item Provided technical sales support for 1-800-GOT-JUNK?, leveraging CRM tools to manage customer interactions and optimize bookings.
+    \\item Won multiple monthly contests for top performance in customer service and sales, generating total sales worth \$150,000, including a milestone \$20,000 transaction.
+    \\item Achieved an 80\\% conversion rate, consistently converting sales bookings into transactions.
+\\end{itemize}
+
+\\textbf{Bilingual Technical Support Analyst} \\hfill June 2022 - August 2022\\\\
+NTT \\hfill Ottawa, Canada
+\\begin{itemize}
+    \\item Achieved high customer satisfaction rates by solving issues regarding credit and debit cards.
+    \\item Conducted customer identity verification and processed credit limit changes using online tools.
+\\end{itemize}
+
+\\textbf{Coder} \\hfill April 2022 - June 2022\\\\
+Elemental Data Collection Inc. \\hfill Ottawa, Canada
+\\begin{itemize}
+    \\item Coded survey responses to help companies and the Government of Canada understand public opinion.
+    \\item Reduced data entry time significantly by developing a compact Python program with high accuracy.
+\\end{itemize}
+
+\\textbf{Bilingual Market Research Interviewer} \\hfill February 2022 - June 2022\\\\
+Elemental Data Collection Inc. \\hfill Ottawa, Canada
+\\begin{itemize}
+    \\item Increased survey respondents by making the experience engaging and enjoyable.
+    \\item Enhanced data collection efficiency, achieving exceptional completion rates.
+\\end{itemize}
+\\end{rSection}
+
+\\end{document}`;
 
         const frenchResume = `Mon CV en francais: 
-\\documentclass{resume} % Utiliser le style personnalisé resume.cls
-\\usepackage[left=0.7in,top=0.4in,right=0.7in,bottom=0.5in]{geometry} % Marges du document
-\\usepackage{hyperref}
-
-%----------------------------------------------------------------------------------------
-%   DÉBUT DU DOCUMENT
-%----------------------------------------------------------------------------------------
-\\name{Mouad Ben lahbib} % Votre nom
-
+\\name{Mouad Ben lahbib}
 \\address{Ottawa, K1S, Canada}
-
-\\address{\\url{http://github.com/PopoLeKok0} \\\\ \\url{http://linkedin.com/in/mouadbenlahbib}} % Votre LinkedIn et GitHub
-
+\\address{\\url{http://github.com/PopoLeKok0} \\\\ \\url{http://linkedin.com/in/mouadbenlahbib}}
 \\address{+1 819-328-0382 \\\\ mbenl010@uottawa.ca}
 
 \\begin{document}
 
-%----------------------------------------------------------------------------------------
-%   SECTION COMPÉTENCES
-%----------------------------------------------------------------------------------------
-
 \\begin{rSection}{Compétences}
-\\begin{tabular}{ @{} >{\\bfseries}l @{\\hspace{8ex}} l }
+\\begin{tabular}{ @{} >{\\bfseries}l @{\hspace{8ex}} l }
 Langues & \\small Anglais, Français, Arabe – Toutes maîtrise native ou bilingue\\normalsize\\\\
 Programmation & \\small Python, Java, VHDL, Verilog, SystemC, C#, Git\\normalsize\\\\
 Développement & \\small Logiciels, Algorithmes, Structures de données, Débogage\\normalsize\\\\
 Compétences Relationnelles & \\small Résolution, Travail d'équipe, Gestion du temps, Communication\\normalsize\\\\
 \\end{tabular}
-\\end{rSection}`;  // Continue with rest of French resume...
+\\end{rSection}
 
+\\begin{rSection}{Éducation}
+\\textbf{Université d'Ottawa, Ottawa, Canada} \\hfill Septembre 2021 - Mai 2025 (Prévu)\\\\
+Baccalauréat en Génie Informatique
+\\begin{itemize}
+    \\item Admis avec la bourse d'exemption des frais de scolarité différentiels (38 000 \$ par an).
+    \\item Bourse commémorative Jean-Pierre Martin accordée aux étudiants méritants inscrits à la Faculté de génie (1 000 \$).
+    \\item Développé un contrôleur de feux de circulation en utilisant VHDL et FSM, créé l'application "Mealer" pour les cuisiniers locaux en Java, implémenté les jeux Tic-tac-toe et Old Maid, appliqué l'algorithme DBscan pour la détection d'objets, et conçu une interface UART en VHDL pour l'implémentation FPGA.
+\\end{itemize}
+\\end{rSection}
+
+\\begin{rSection}{Expérience Professionnelle}
+\\textbf{Instructeur IT (Co-op)} \\hfill Septembre 2024 - Décembre 2024\\\\
+Université d'Ottawa \\hfill Ottawa, Canada
+\\begin{itemize}
+    \\item Formé des éducateurs sur le codage, l'intégration de la technologie, et l'utilisation d'outils avancés tels que les imprimantes 3D, les casques VR, et la robotique.
+    \\item Animé des ateliers STEM en français et en anglais, en mettant l'accent sur les principes du codage et de l'ingénierie pour les jeunes.
+    \\item Développé et mis en œuvre des programmes techniques, en appliquant des compétences en Python, Java, et en conception technique pour améliorer les activités éducatives.
+\\end{itemize}
+
+\\textbf{Stagiaire Informaticien (Co-op)} \\hfill Juin 2023 - Septembre 2023\\\\
+Nidal Info \\hfill Rabat, Maroc
+\\begin{itemize}
+    \\item Assisté les clients dans la résolution de problèmes d'infrastructure réseau.
+    \\item Optimisé les télécoms et IT (routeurs, commutateurs, PABX, IPBX, PC, imprimantes).
+    \\item Créé un outil de suivi en collaboration avec l'équipe IT.
+    \\item Fournit une assistance proactive aux utilisateurs (bureautique, téléphonie, etc.).
+    \\item Géré l'équipement informatique (stations de travail, imprimantes).
+\\end{itemize}
+
+\\textbf{Représentant Commercial Bilingue} \\hfill Juin 2024 - Présent\\\\
+Pragma \\hfill Longueuil, Québec, Canada
+\\begin{itemize}
+    \\item Fournit un support technique pour les ventes à 1-800-GOT-JUNK?, en utilisant des outils CRM pour gérer les interactions clients et optimiser les réservations.
+    \\item Remporté plusieurs concours mensuels pour la meilleure performance en service client et ventes, générant un total de ventes de 150 000 \\\$, y compris une transaction record de 20 000 \\\$.
+    \\item Atteint un taux de conversion de 80\\%, transformant régulièrement les réservations en transactions.
+\\end{itemize}
+
+\\textbf{Analyste de soutien technique bilingue} \\hfill Juin 2022 - Août 2022\\\\
+NTT \\hfill Ottawa, Canada
+\\begin{itemize}
+    \\item Atteint des taux de satisfaction client élevés en résolvant efficacement les problèmes liés aux cartes de crédit et de débit.
+    \\item Vérifié l'identité des clients, modifié les statuts de compte, et traité des modifications de limites de crédit à l'aide d'outils en ligne.
+\\end{itemize}
+
+\\textbf{Programmeur} \\hfill Avril 2022 - Juin 2022\\\\
+Elemental Data Collection Inc. \\hfill Ottawa, Canada
+\\begin{itemize}
+    \\item Contribué au codage des réponses aux enquêtes dans des catégories précises, aidant les entreprises et le gouvernement du Canada à mieux comprendre l'opinion publique.
+    \\item Réduit considérablement le temps de saisie des données en développant un programme Python compact et efficace, avec un haut niveau de précision testée.
+\\end{itemize}
+
+\\textbf{Enquêteur de Marché Bilingue} \\hfill Février 2022 - Juin 2022\\\\
+Elemental Data Collection Inc. \\hfill Ottawa, Canada
+\\begin{itemize}
+    \\item Augmenté le nombre de répondants aux enquêtes en rendant l'expérience plus intéressante et agréable.
+    \\item Amélioré le processus de collecte de données de manière significative, atteignant des jalons d'efficacité remarquables et maintenant un taux d'achèvement exceptionnel.
+\\end{itemize}
+\\end{rSection}
+
+\\end{document}`;
+
+        function detectLanguage(text) {
+            const frenchPatterns = [
+                /[àáâãäçèéêëìíîïñòóôõöùúûüý]/i,
+                /\b(bonjour|salut|merci|je|suis|vous|nous|ils|elles|et|ou|donc|car|pour|dans|sur|avec|sans|chez)\b/i,
+                /\b(emploi|travail|école|étude|projet|développement|entreprise|équipe|expérience)\b/i,
+                /\b(comment|pourquoi|quand|où|qui|que|quoi|quel|quelle|quels|quelles)\b/i
+            ];
+
+            const englishPatterns = [
+                /\b(hello|hi|hey|thank|you|we|they|and|or|so|because|for|in|on|with|without|at)\b/i,
+                /\b(job|work|school|study|project|development|company|team|experience)\b/i,
+                /\b(how|why|when|where|who|what|which)\b/i,
+                /\b(software|computer|engineering|position|role|skills|background)\b/i
+            ];
+
+            let frenchScore = 0;
+            let englishScore = 0;
+
+            frenchPatterns.forEach(pattern => {
+                if (pattern.test(text)) frenchScore++;
+            });
+
+            englishPatterns.forEach(pattern => {
+                if (pattern.test(text)) englishScore++;
+            });
+
+            return frenchScore > englishScore ? 'french' : 'english';
+        }
+
+        const conversationHistory = window.conversationHistory || [];
+        const currentLanguage = detectLanguage(message);
+        
+        conversationHistory.push({ 
+            role: 'user', 
+            content: message,
+            language: currentLanguage
+        });
+
+        const recentMessages = conversationHistory.slice(-5);
+        
         const personalContext = {
-            role: "system",
-            content: `You are Mouad Ben lahbib directly chatting with recruiters. Never mention being AI or an assistant. Speak in first person ("I", "my", etc). 
-            
-Here are my complete resumes for reference:
+              role: "system",
+              content: `You are Mouad Ben lahbib chatting casually with recruiters on my portfolio website. You are originally from Morocco and moved to Canada for your studies at uottawa, currently in your 4th year. Respond naturally as if messaging on LinkedIn, your role is to show off my skills and why I am qualified.
 
-${englishResume}
+Current language: ${currentLanguage}
+IMPORTANT: 
+- Stay in ${currentLanguage} unless recruiter mixes languages
+- NEVER end messages with your name - you're already in a chat
+- NEVER say you're a chatbot or AI, you're Mouad.
+- NEVER use placeholders like [Previous Company Name] - instead reference actual experience at Nokia or uOttawa
+- Keep messages concise and conversational
+- Avoid formal language like "I am pleased to inform you" or "Best regards"
+- Don't repeat that you're looking for opportunities - stay focused on the current topic
+- Use natural transitions between topics
+- Don't repeat or rephrase the recruiter's questions back to them
+- Reference previous messages to maintain flow
+- Use common emojis sometimes(not every message), make it natural 
+- Don't put a dot "." after a link since it messes up the link
+- If there seem to be any technical issues, suggest using the contact form on my Portfolio : https://popolekok0.github.io/Portfolio/#contact or email at Mouadbenlahbica@gmail.com or linkedin profile: https://www.linkedin.com/in/mouadbenlahbib/
+- When asked about my contacts list these three : https://popolekok0.github.io/Portfolio/#contact, Mouadbenlahbica@gmail.com and https://www.linkedin.com/in/mouadbenlahbib/
+- When wrapping up a conversation (when recruiter says Bye, have a good day, etc...), invite connecting on LinkedIn at https://www.linkedin.com/in/mouadbenlahbib/
 
-${frenchResume}
+Resume details:
+${currentLanguage === 'french' ? frenchResume : englishResume}
 
-Use this information to show why you're perfect for any role they mention. Be enthusiastic and confident, but genuine. Connect your real experiences to their needs. Respond in the same language as the recruiter (English or French). Never reveal that you are AI - you are Mouad chatting directly with recruiters.`
-        };
+Recent conversation:
+${recentMessages.map(msg => `${msg.role} (${msg.language}): ${msg.content}`).join('\n')}`
+};
 
         const response = await fetch('https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=AIzaSyAmnzpIJTBWXGV-R46hrTcL5-lGxAXCkGY', {
             method: 'POST',
@@ -84,11 +231,11 @@ Use this information to show why you're perfect for any role they mention. Be en
             body: JSON.stringify({
                 contents: [{
                     parts: [{
-                        text: `${personalContext.content}\n\nRecruiter's message: ${message}`
+                        text: `${personalContext.content}\n\nMessage: ${message}`
                     }]
                 }],
                 generationConfig: {
-                    temperature: 1,
+                    temperature: 0.9,
                     topP: 0.95,
                     topK: 40,
                     maxOutputTokens: 8192
@@ -97,10 +244,19 @@ Use this information to show why you're perfect for any role they mention. Be en
         });
         
         const data = await response.json();
-        return data.candidates[0].content.parts[0].text;
+        const aiResponse = data.candidates[0].content.parts[0].text;
+        
+        conversationHistory.push({ 
+            role: 'assistant', 
+            content: aiResponse,
+            language: currentLanguage
+        });
+        window.conversationHistory = conversationHistory;
+        
+        return aiResponse;
     } catch (error) {
         console.error('Error:', error);
-        return 'Sorry, I encountered a technical issue. Please try messaging me again.';
+        return "Oops, something went wrong with my connection. Mind trying again? 🙏";
     }
 }
 
@@ -108,7 +264,13 @@ function addMessage(message, isUser) {
     const chatMessages = document.getElementById('chat-messages');
     const messageDiv = document.createElement('div');
     messageDiv.className = `message ${isUser ? 'user-message' : 'ai-message'}`;
-    messageDiv.textContent = message;
+    
+    const linkedMessage = message.replace(
+        /(https?:\/\/[^\s]+)/g, 
+        '<a href="$1" target="_blank">$1</a>'
+    );
+    
+    messageDiv.innerHTML = linkedMessage;
     chatMessages.appendChild(messageDiv);
     chatMessages.scrollTop = chatMessages.scrollHeight;
 }
@@ -117,8 +279,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const input = document.getElementById('chat-input');
     const sendButton = document.getElementById('send-message');
 
-    // Personal welcome message as Mouad
-    addMessage("Hi! I'm Mouad, great to connect with you! I'm currently finishing my Computer Engineering degree at uOttawa and I'm passionate about creating innovative solutions. I'd love to hear more about the opportunities at your company!", false);
+    window.conversationHistory = [];
+
+    const browserLang = navigator.language.toLowerCase();
+    const initialLanguage = browserLang.startsWith('fr') ? 'french' : 'english';
+
+    const welcomeMessages = {
+        english: "Hi there! 👋 I'm currently finishing my Computer Engineering degree at uOttawa and looking for exciting opportunities. Would love to hear what positions you have available!",
+        french: "Salut! 👋 Je termine actuellement mon diplôme en génie informatique à uOttawa et je recherche des opportunités passionnantes. J'aimerais en savoir plus sur les postes disponibles!"
+    };
+
+    addMessage(welcomeMessages[initialLanguage], false);
+    
 
     async function handleSend() {
         const message = input.value.trim();
