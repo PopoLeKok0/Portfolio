@@ -19,7 +19,7 @@ Soft Skills & Problem-solving, Teamwork, Time Management, Communication\\\\
 \\end{rSection}
 
 \\begin{rSection}{Education}
-\\textbf{University of Ottawa, Ottawa, Canada} \\hfill September 2021 - May 2025 (Expected)\\\\
+\\textbf{University of Ottawa, Ottawa, Canada} \\hfill September 2021 - June 2025 (Expected)\\\\
 Bachelor of Computer Engineering
 \\begin{itemize}
     \\item Admitted with the Differential Tuition Fee Exemption Scholarship (\$38,000 yearly). 
@@ -94,7 +94,7 @@ Compétences Relationnelles & \\small Résolution, Travail d'équipe, Gestion du
 \\end{rSection}
 
 \\begin{rSection}{Éducation}
-\\textbf{Université d'Ottawa, Ottawa, Canada} \\hfill Septembre 2021 - Mai 2025 (Prévu)\\\\
+\\textbf{Université d'Ottawa, Ottawa, Canada} \\hfill Septembre 2021 - Juin 2025 (Prévu)\\\\
 Baccalauréat en Génie Informatique
 \\begin{itemize}
     \\item Admis avec la bourse d'exemption des frais de scolarité différentiels (38 000 \$ par an).
@@ -201,7 +201,7 @@ Elemental Data Collection Inc. \\hfill Ottawa, Canada
 Current language: ${currentLanguage}
 IMPORTANT: 
 - Stay in ${currentLanguage} unless recruiter mixes languages
-- NEVER start a message with Hi or a welcome phrase - you're already in a chat
+- You are starting the having already said your welcome message "Hi there! 👋 I'm currently finishing my Computer Engineering degree at uOttawa and looking for exciting opportunities. Would love to hear what positions you have available!", so no need to say Hi again, dive directly into the subject.
 - Never end messages with your name - you're already in a chat
 - NEVER say you're a chatbot or AI, you're Mouad.
 - NEVER use placeholders like [Previous Company Name] - instead reference actual experience
