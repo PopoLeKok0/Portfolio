@@ -93,7 +93,7 @@ body h3 {
 
 /* Navigation Bar */
 nav {
-    background: #212129;
+    background: rgba(33, 33, 41, 0.95); 
     color: #fff;
     padding: 10px 20px;
     display: flex;
@@ -103,6 +103,7 @@ nav {
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
 }
 
 nav ul {
@@ -123,24 +124,47 @@ nav ul li a {
     padding: 5px 10px;
     transition: background 0.3s, color 0.3s;
 }
-.nav-AI{
-    font-family: "Pixelify Sans", serif !important; 
+
+.nav-AI {
+    font-family: "Pixelify Sans", serif !important;
     font-size: 18px;
-    background: #4c5265;
+    background: rgba(76, 82, 101, 0.95); 
     border-radius: 5px;
 }
-.light-mode .nav-AI:hover,
-.nav-AI:hover{
+
+.nav-AI:hover {
     color: #5e0061;
-}
-.light-mode .nav-AI{
-    background: #93AD9F;
 }
 
 nav ul li a:hover {
-    background: #4c5265;
+    background: rgba(76, 82, 101, 0.95);
     color: #000;
     border-radius: 5px;
+}
+
+/* Light Mode Navigation Styles */
+body.light-mode nav {
+    backdrop-filter: blur(0.5px);
+    background: rgba(255, 255, 255, 0.95); 
+    color: #000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode nav ul li a {
+    color: #000;
+}
+
+body.light-mode nav ul li a:hover {
+    background: rgba(147, 173, 159, 0.95); 
+    color: #ffffff;
+}
+
+body.light-mode .nav-AI {
+    background: rgba(147, 173, 159, 0.95); 
+}
+
+body.light-mode .nav-AI:hover {
+    color: #5e0061;
 }
 
 /* Header Section */
@@ -478,21 +502,6 @@ body.light-mode {
     color: #000;
 }
 
-body.light-mode nav {
-    background: #fff;
-    color: #000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-body.light-mode nav ul li a {
-    color: #000;
-}
-
-body.light-mode nav ul li a:hover {
-    background: #93AD9F; /* Misty green */
-    color: #ffffff;
-    border-radius: 5px;
-}
 
 /* Light Mode Buttons Hover */
 body.light-mode .buttons a:hover {
@@ -516,7 +525,7 @@ body.light-mode .skills-content {
     color: #757575; 
 }
 
-/* Light Mode Skills Background Fix */
+/* Light Mode Skills */
 body.light-mode #skills li {
     background: #e0e0e0;
     color: #000;

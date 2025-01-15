@@ -30,7 +30,7 @@ window.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             console.log("Sliding out the intro screen");
             // Slide out the intro screen after the animation
-            intro.style.top = '-100vh'; 
+            intro.style.top = '-105vh'; 
         }, 2300); // After 2.3 seconds
 
     });
