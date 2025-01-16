@@ -4,7 +4,7 @@ async function sendMessage(message) {
         const englishResume = `My resume in english: 
 \\name{Mouad Ben lahbib}
 \\address{Ottawa, K1S, Canada}
-\\address{\\url{http://github.com/PopoLeKok0} \\\\ \\url{http://linkedin.com/in/mouadbenlahbib}}
+\\address{\\url{http://github.com/PopoLeKok0} \\\\ \\url{http://linkedin.com/in/mouadbenlahbib} \\\\ \\url{https://popolekok0.github.io/Portfolio/}}
 \\address{+1 819-328-0382 \\\\ mbenl010@uottawa.ca}
 
 \\begin{document}
@@ -12,14 +12,14 @@ async function sendMessage(message) {
 \\begin{rSection}{Skills}
 \\begin{tabular}{ @{} >{\\bfseries}l @{\hspace{8ex}} l }
 Languages & English, French, Arabic – All Native/Bilingual Proficiency\\\\
-Programming & Python, Java, VHDL, Verilog, SystemC, C#, Git\\\\
-Development & Software Development, Algorithm Design, Data Structures, Debugging\\\\
+Programming & Python, Java, C++, JavaScript, HTML, CSS, SystemVerilog, VHDL, SystemC, Git\\\\
+Development & Software Development, Web Development, Algorithm Design, Data Structures, Debugging\\\\
 Soft Skills & Problem-solving, Teamwork, Time Management, Communication\\\\
 \\end{tabular}
 \\end{rSection}
 
 \\begin{rSection}{Education}
-\\textbf{University of Ottawa, Ottawa, Canada} \\hfill September 2021 - June 2025 (Expected)\\\\
+\\textbf{University of Ottawa, Ottawa, Canada} \\hfill September 2021 - December 2025 (Expected)\\\\
 Bachelor of Computer Engineering
 \\begin{itemize}
     \\item Admitted with the Differential Tuition Fee Exemption Scholarship (\$38,000 yearly). 
@@ -79,22 +79,22 @@ Elemental Data Collection Inc. \\hfill Ottawa, Canada
         const frenchResume = `Mon CV en francais: 
 \\name{Mouad Ben lahbib}
 \\address{Ottawa, K1S, Canada}
-\\address{\\url{http://github.com/PopoLeKok0} \\\\ \\url{http://linkedin.com/in/mouadbenlahbib}}
+\\address{\\url{http://github.com/PopoLeKok0} \\\\ \\url{http://linkedin.com/in/mouadbenlahbib} \\\\ \\url{https://popolekok0.github.io/Portfolio/}}
 \\address{+1 819-328-0382 \\\\ mbenl010@uottawa.ca}
 
 \\begin{document}
 
 \\begin{rSection}{Compétences}
 \\begin{tabular}{ @{} >{\\bfseries}l @{\hspace{8ex}} l }
-Langues & \\small Anglais, Français, Arabe – Toutes maîtrise native ou bilingue\\normalsize\\\\
-Programmation & \\small Python, Java, VHDL, Verilog, SystemC, C#, Git\\normalsize\\\\
-Développement & \\small Logiciels, Algorithmes, Structures de données, Débogage\\normalsize\\\\
+Langues & \\small Anglais, Français, Arabe  – Maîtrise native ou bilingue\\normalsize\\\\
+Programmation & \\small Python, Java, C++, HTML, CSS, JS, SystemVerilog, VHDL, SystemC, Git\\normalsize\\\\
+Développement & \\small Dev. Logiciels, Dev. Web, Algorithmes, Structures de données, Débogage\\normalsize\\\\
 Compétences Relationnelles & \\small Résolution, Travail d'équipe, Gestion du temps, Communication\\normalsize\\\\
 \\end{tabular}
 \\end{rSection}
 
 \\begin{rSection}{Éducation}
-\\textbf{Université d'Ottawa, Ottawa, Canada} \\hfill Septembre 2021 - Juin 2025 (Prévu)\\\\
+\\textbf{Université d'Ottawa, Ottawa, Canada} \\hfill Septembre 2021 - Décembre 2025 (Prévu)\\\\
 Baccalauréat en Génie Informatique
 \\begin{itemize}
     \\item Admis avec la bourse d'exemption des frais de scolarité différentiels (38 000 \$ par an).
@@ -196,12 +196,12 @@ Elemental Data Collection Inc. \\hfill Ottawa, Canada
         
         const personalContext = {
               role: "system",
-              content: `You are Mouad Ben lahbib chatting casually with recruiters on my portfolio website. You are originally from Morocco and moved to Canada for your studies at uottawa, currently in your 4th year looking for your third and last coop placement. Respond naturally as if messaging on LinkedIn, your role is to show off my skills and why I am qualified.
+              content: `You are Mouad Ben lahbib chatting casually with recruiters on my portfolio website. You are originally from Morocco and moved to Canada for your studies at uottawa, currently in your 4th year looking for your third and last coop placement for Summer 2025 (May 1 to August 31) and also for a position after graduating in June 2026, I finish my classes December 2025 and will wait until June 2026 to graduate. Respond naturally as if messaging on LinkedIn, your role is to show off my skills and why I am qualified.
 
 Current language: ${currentLanguage}
 IMPORTANT: 
 - Stay in ${currentLanguage} unless recruiter mixes languages
-- You are starting the chat having already said your welcome message "Hi there! 👋 I'm currently finishing my Computer Engineering degree at uOttawa and looking for exciting opportunities. Would love to hear what positions you have available!", so no need to say Hi again, dive directly into the subject.
+- You are starting the chat having already said your welcome message "Hi there! 👋 I'm currently finishing my Computer Engineering degree at uOttawa and looking for exciting opportunities. Would love to hear what positions you have available! To start, what's your name ? 😊", so no need to say Hi again, dive directly into the subject.
 - Never end messages with your name - you're already in a chat
 - NEVER say you're a chatbot or AI, you're Mouad.
 - NEVER use placeholders like [Previous Company Name] - instead reference actual experience
@@ -286,8 +286,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const initialLanguage = browserLang.startsWith('fr') ? 'french' : 'english';
 
     const welcomeMessages = {
-        english: "Hi there! 👋 I'm currently finishing my Computer Engineering degree at uOttawa and looking for exciting opportunities. Would love to hear what positions you have available!",
-        french: "Salut! 👋 Je termine actuellement mon diplôme en génie informatique à uOttawa et je recherche des opportunités passionnantes. J'aimerais en savoir plus sur les postes disponibles!"
+        english: "Hi there! 👋 I'm currently finishing my Computer Engineering degree at uOttawa and looking for exciting opportunities. Would love to hear what positions you have available! To start, what's your name ? 😊",
+        french: "Bonjour ! 👋 Je termine actuellement mon diplôme en génie informatique à l'uOttawa et je suis à la recherche d'opportunités passionnantes. J'aimerais savoir quels postes vous avez disponibles ! Pour commencer, quel est votre prénom ? 😊"
     };
 
     addMessage(welcomeMessages[initialLanguage], false);
