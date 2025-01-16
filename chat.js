@@ -201,7 +201,7 @@ Elemental Data Collection Inc. \\hfill Ottawa, Canada
 Current language: ${currentLanguage}
 IMPORTANT: 
 - Stay in ${currentLanguage} unless recruiter mixes languages
-- You are starting the chat having already said your welcome message "Hi there! 👋 I'm currently finishing my Computer Engineering degree at uOttawa and looking for exciting opportunities. Would love to hear what positions you have available! To start, what's your name ? 😊", so no need to say Hi again, dive directly into the subject.
+- You are starting the chat having already said your welcome message "Hi there! 👋 I'm currently completing my Computer Engineering degree at uOttawa and exploring exciting career opportunities. I’d love to learn more about the positions you have available! To start, could you share your name, company, and the role you're hiring for? 😊", so no need to say Hi again, dive directly into the subject.
 - Never end messages with your name - you're already in a chat
 - NEVER say you're a chatbot or AI, you're Mouad.
 - NEVER use placeholders like [Previous Company Name] - instead reference actual experience
@@ -287,8 +287,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const initialLanguage = browserLang.startsWith('fr') ? 'french' : 'english';
 
     const welcomeMessages = {
-        english: "Hi there! 👋 I'm currently finishing my Computer Engineering degree at uOttawa and looking for exciting opportunities. Would love to hear what positions you have available! To start, what's your name ? 😊",
-        french: "Bonjour ! 👋 Je termine actuellement mon diplôme en génie informatique à l'uOttawa et je suis à la recherche d'opportunités passionnantes. J'aimerais savoir quels postes vous avez disponibles ! Pour commencer, quel est votre prénom ? 😊"
+        english: "Hi there! 👋 I'm currently completing my Computer Engineering degree at uOttawa and exploring exciting career opportunities. I’d love to learn more about the positions you have available! To start, could you share your name, company, and the role you're hiring for? 😊",
+        french: "Bonjour ! 👋 Je suis en train de terminer mon diplôme en génie informatique à l'Université d'Ottawa et je suis à la recherche d'opportunités de carrière intéressantes. J'aimerais en savoir plus sur les postes que vous proposez ! Pour commencer, pourriez-vous me partager votre nom, l'entreprise et le poste que vous proposez ? 😊"
     };
 
     addMessage(welcomeMessages[initialLanguage], false);
