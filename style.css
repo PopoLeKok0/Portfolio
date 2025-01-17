@@ -20,7 +20,6 @@ body {
     margin: 0;
     padding: 0;
     color: #ffffff;
-    background: linear-gradient(to top, #4c5265, #212129 );
 }
 body h3 {
     color: #ffffff;
@@ -143,6 +142,16 @@ nav ul li a:hover {
 }
 
 /* Light Mode Navigation Styles */
+.light-mode cursor-blink {
+   
+    from, to { 
+    border-color: black;
+    }
+    50% {
+    border-color: transparent;
+    }
+
+}
 body.light-mode nav {
     backdrop-filter: blur(0.5px);
     background: rgba(255, 255, 255, 0.95); 
@@ -177,15 +186,19 @@ body.light-mode .nav-AI:hover {
     overflow: hidden;
     z-index: -1;
 }
-
-.header-background video {
+.content--canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
 }
 
+
 header {
-    background: #161616;
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -515,8 +528,7 @@ body.light-mode #contact a:hover {
 }
 
 body.light-mode header {
-    background: #ccd4cf;
-    color: #ffffff;
+    color: #000000;
 }
 body.light-mode .skills-column {
     background: #93AD9F 

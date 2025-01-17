@@ -47,12 +47,14 @@ themeSwitch.addEventListener('click', () => {
     if (isLightMode) {
         logo_small.src = 'logos/black_logo_green_small.png'; 
         logo_small.alt = 'black Logo Green Small';
-        logo_big.src = 'logos/white_logo_green_big.png'; 
-        logo_big.alt = 'White Logo Green Big';
+        logo_big.src = 'logos/black_logo_green_big.png'; 
+        logo_big.alt = 'Black Logo Green Big';
+        <script src="js_animations/pipeline.js"></script>
     } else {
         logo_small.src = 'logos/white_logo_blue_small.png';   
         logo_small.alt = 'White Logo Blue Small';
         logo_big.src = 'logos/white_logo_blue_big.png'; 
         logo_big.alt = 'White Logo Blue Big';
+        <script src="js_animations/swirl.js"></script>
     }
 });
