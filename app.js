@@ -73,7 +73,7 @@ function updateBackgroundAnimation(isLight) {
     }
     
     const script = document.createElement('script');
-    script.src = isLight ? "pipeline.js" : "swirl.js";
+    script.src = isLight ? "js_animations/pipeline.js" : "js_animations/swirl.js";
     script.className = isLight ? "pipeline-animation" : "swirl-animation";
     document.body.appendChild(script);
 }
