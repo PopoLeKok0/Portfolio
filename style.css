@@ -141,17 +141,6 @@ nav ul li a:hover {
     border-radius: 5px;
 }
 
-/* Light Mode Navigation Styles */
-.light-mode cursor-blink {
-   
-    from, to { 
-    border-color: black;
-    }
-    50% {
-    border-color: transparent;
-    }
-
-}
 body.light-mode nav {
     backdrop-filter: blur(0.5px);
     background: rgba(255, 255, 255, 0.95); 
@@ -555,8 +544,11 @@ body.light-mode .project-card {
 }
 
 body.light-mode .contact-form {
-    background: #fff;
     color: #000;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
 }
 
 body.light-mode .contact-form input,
@@ -642,7 +634,7 @@ body.light-mode .user-message {
   
   @keyframes cursor-blink {
     from, to { 
-      border-color: white;
+      border-color: rgb(112, 112, 112);
     }
     50% {
       border-color: transparent;

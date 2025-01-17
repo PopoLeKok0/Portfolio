@@ -188,6 +188,7 @@ function renderToScreen() {
 }
 
 function draw() {
+  
   tick++;
 
   ctx.a.clearRect(0, 0, canvas.a.width, canvas.a.height);
