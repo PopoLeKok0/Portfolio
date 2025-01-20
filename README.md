@@ -1,6 +1,6 @@
-# Mouad's Portfolio
+# My Portfolio
 
-Welcome to my portfolio website! This project showcases my skills, projects, and experience as a Computer Engineering student. The website is hosted here: [https://popolekok0.github.io/Portfolio/](https://popolekok0.github.io/Portfolio/)
+Welcome to my portfolio website! This project showcases my skills, projects, and experience as a Computer Engineering student. The website is hosted [here](https://popolekok0.github.io/Portfolio/).
 
 ## Description
 
@@ -29,7 +29,7 @@ If you'd like to contribute or suggest improvements:
 
 ## License
 
-All content, code, and resources in this repository are protected under the **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License**: [https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en)
+All content, code, and resources in this repository are protected under the **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License**. You can find more details [here](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en).
 
 ### Permissions:
 - **Allowed:** Viewing and sharing for personal use.
