@@ -1,4 +1,4 @@
-# My Portfolio
+#Portfolio
 
 Welcome to my portfolio website! This project showcases my skills, projects, and experience as a Computer Engineering student. The website is hosted [here](https://popolekok0.github.io/Portfolio/).
 
