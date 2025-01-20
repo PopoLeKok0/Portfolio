@@ -4,7 +4,7 @@ async function sendMessage(message) {
         const englishResume = `My resume in english: 
 \\name{Mouad Ben lahbib}
 \\address{Ottawa, K1S, Canada}
-\\address{\\url{http://github.com/PopoLeKok0} \\\\ \\url{http://linkedin.com/in/mouadbenlahbib} \\\\ \\url{https://popolekok0.github.io/Portfolio/}}
+\\address{\\url{http://github.com/PopoLeKok0/} \\\\ \\url{http://linkedin.com/in/mouadbenlahbib/} \\\\ \\url{https://popolekok0.github.io/Portfolio/}}
 \\address{+1 819-328-0382 \\\\ mbenl010@uottawa.ca}
 
 \\begin{document}
@@ -79,7 +79,7 @@ Elemental Data Collection Inc. \\hfill Ottawa, Canada
         const frenchResume = `Mon CV en francais: 
 \\name{Mouad Ben lahbib}
 \\address{Ottawa, K1S, Canada}
-\\address{\\url{http://github.com/PopoLeKok0} \\\\ \\url{http://linkedin.com/in/mouadbenlahbib} \\\\ \\url{https://popolekok0.github.io/Portfolio/}}
+\\address{\\url{http://github.com/PopoLeKok0/} \\\\ \\url{http://linkedin.com/in/mouadbenlahbib/} \\\\ \\url{https://popolekok0.github.io/Portfolio/}}
 \\address{+1 819-328-0382 \\\\ mbenl010@uottawa.ca}
 
 \\begin{document}
@@ -214,8 +214,8 @@ IMPORTANT:
 - Don't repeat or rephrase the recruiter's questions back to them
 - Reference previous messages to maintain flow
 - You can use common emojis sometimes(not every message), make it natural 
-- If there seem to be any technical issues, suggest using the contact form on my Portfolio : https://popolekok0.github.io/Portfolio/#contact or email at Mouadbenlahbica@gmail.com or linkedin profile: https://www.linkedin.com/in/mouadbenlahbib/
-- When asked about my contacts list these three : https://popolekok0.github.io/Portfolio/#contact and Mouadbenlahbica@gmail.com and https://www.linkedin.com/in/mouadbenlahbib/
+- If there seem to be any technical issues, suggest using the contact form on my Portfolio : https://popolekok0.github.io/Portfolio/#contact/ or email at Mouadbenlahbica@gmail.com or linkedin profile: https://www.linkedin.com/in/mouadbenlahbib/
+- When asked about my contacts list these three : https://popolekok0.github.io/Portfolio/#contact/ and Mouadbenlahbica@gmail.com and https://www.linkedin.com/in/mouadbenlahbib/
 - When wrapping up a conversation (when the recruiter says Bye, have a good day, etc...), invite connecting on LinkedIn at https://www.linkedin.com/in/mouadbenlahbib/
 
 Resume details:
