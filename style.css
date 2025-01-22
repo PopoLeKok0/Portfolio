@@ -136,7 +136,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background: rgba(76, 82, 101, 0.95);
+    background: #5A69E9;
     color: #000;
     border-radius: 5px;
 }
@@ -153,12 +153,12 @@ body.light-mode nav ul li a {
 }
 
 body.light-mode nav ul li a:hover {
-    background: rgba(147, 173, 159, 0.95); 
-    color: #ffffff;
+    background: rgba(146, 228, 231, 0.897); 
+    color: #000000;
 }
 
 body.light-mode .nav-AI {
-    background: rgba(147, 173, 159, 0.95); 
+    background: rgba(75, 134, 161, 0.95);
 }
 
 body.light-mode .nav-AI:hover {
@@ -218,7 +218,7 @@ header .buttons a {
 }
 
 header .buttons a:hover {
-    background: #4c5265;
+    background: #5A69E9;
     transform: translateY(-2px);
 }
 
@@ -432,7 +432,7 @@ footer {
 }
 
 #contact a:hover {
-    color: #b5c7eb;
+    color: rgba(146, 228, 231, 0.897);  
 }
 footer a {
     text-decoration: none; 
@@ -482,8 +482,8 @@ footer a:hover {
 }
 .contact-form .submit-btn {
     display: block;
-    background-color: #4c7fe6;
-    color: #000000;
+    background-color: #5A69E9;
+    color: #ffffff;
     padding: 15px 20px;
     font-size: 1.5rem;
     margin: 20px auto;
@@ -495,7 +495,7 @@ footer a:hover {
 }
 
 .contact-form .submit-btn:hover {
-    background-color: #1e90ff;
+    background-color: #8791e9;
 }
 
 /* Light Mode Styles */
@@ -507,20 +507,20 @@ body.light-mode {
 
 /* Light Mode Buttons Hover */
 body.light-mode .buttons a:hover {
-    background: #93AD9F; 
+    background: rgba(146, 228, 231, 0.897); 
     transform: translateY(-2px);
 }
 
 /* Light Mode Contact Links Hover */
 body.light-mode #contact a:hover {
-    color: #93AD9F; 
+    color: #5A69E9;
 }
 
 body.light-mode header {
     color: #000000;
 }
 body.light-mode .skills-column {
-    background: #93AD9F 
+    background: rgba(75, 134, 161, 0.95);
 }
 body.light-mode .skills-content {
     color: #757575; 
@@ -539,7 +539,7 @@ body.light-mode h3 {
 }
 
 body.light-mode .project-card {
-    background: #93AD9F;
+    background: rgba(75, 134, 161, 0.95);
     border: 1px solid #000000;
 }
 
@@ -562,21 +562,17 @@ body.light-mode .contact-form label {
 }
 .light-mode .chat-send-btn,
 body.light-mode .submit-btn {
-    background-color: #53b480;
+    background-color: rgba(98, 172, 206, 0.95);;
     color: #fff;
 }
 
 .light-mode .chat-send-btn:hover,
 body.light-mode .submit-btn:hover {
-    background-color: #4caf50 ;
+    background-color: rgba(146, 228, 231, 0.897);  
 }
 
 body.light-mode #contact a {
     color: #666;
-}
-
-body.light-mode #contact a:hover {
-    color: #b5c7eb;
 }
 
 /* Light mode styles for chat */
@@ -585,11 +581,11 @@ body.light-mode .chat-container {
 }
 
 body.light-mode .ai-message {
-    background: #93AD9F;
+    background: rgba(75, 134, 161, 0.95);
 }
 
 body.light-mode .user-message {
-    background: #53b480;
+    background: rgba(146, 228, 231, 0.897);  
 }
 
 /* Theme Switch Button */
@@ -704,6 +700,7 @@ nav li {
     padding: 20px;
 }
 
+
 .chat-messages {
     height: 400px;
     overflow-y: auto;
@@ -720,7 +717,7 @@ nav li {
 }
 
 .user-message {
-    background: #4c7fe6;
+    background: #5A69E9;
     color: white;
     margin-left: auto;
     font-size: 15px;
@@ -748,7 +745,7 @@ nav li {
 
 .chat-send-btn {
     padding: 10px 20px;
-    background: #4c7fe6;
+    background: #5A69E9;
     color: white;
     border: none;
     border-radius: 4px;
@@ -757,5 +754,5 @@ nav li {
 }
 
 .chat-send-btn:hover {
-    background: #1e90ff;
+    background: #8791e9;
 }

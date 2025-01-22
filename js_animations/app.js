@@ -51,15 +51,15 @@ function updateThemeElements(isLight) {
     
     // Update logos
     if (isLight) {
-        logo_small.src = 'logos/black_logo_green_small.png';
-        logo_small.alt = 'Black Logo Green Small';
-        logo_big.src = 'logos/new_50.png';
-        logo_big.alt = 'Black Logo Green Big';
+        logo_small.src = 'logos/small_light_theme_logo.png';
+        logo_small.alt = 'small_light_theme_logo';
+        logo_big.src = 'logos/big_light_theme_logo.png';
+        logo_big.alt = 'big_light_theme_logo';
     } else {
-        logo_small.src = 'logos/white_logo_blue_small.png';
-        logo_small.alt = 'White Logo Blue Small';
-        logo_big.src = 'logos/new_50.png';
-        logo_big.alt = 'White Logo Blue Big';
+        logo_small.src = 'logos/small_dark_theme_logo.png';
+        logo_small.alt = 'small_dark_theme_logo';
+        logo_big.src = 'logos/big_dark_theme_logo.png';
+        logo_big.alt = 'big_dark_theme_logo';
     }
     
     // Update background animation
