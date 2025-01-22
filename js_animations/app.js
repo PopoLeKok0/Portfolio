@@ -53,12 +53,12 @@ function updateThemeElements(isLight) {
     if (isLight) {
         logo_small.src = 'logos/black_logo_green_small.png';
         logo_small.alt = 'Black Logo Green Small';
-        logo_big.src = 'logos/black_logo_green_big.png';
+        logo_big.src = 'logos/new_50.png';
         logo_big.alt = 'Black Logo Green Big';
     } else {
         logo_small.src = 'logos/white_logo_blue_small.png';
         logo_small.alt = 'White Logo Blue Small';
-        logo_big.src = 'logos/white_logo_blue_big.png';
+        logo_big.src = 'logos/new_50.png';
         logo_big.alt = 'White Logo Blue Big';
     }
     
