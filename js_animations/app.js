@@ -67,14 +67,14 @@ function updateThemeElements(isLight) {
 }
 
 function updateBackgroundAnimation(isLight) {
-    const existingScript = document.querySelector('.pipeline-animation, .swirl-animation');
+    const existingScript = document.querySelector('.light_bg-animation, .dark_bg-animation');
     if (existingScript) {
         existingScript.remove();
     }
     
     const script = document.createElement('script');
-    script.src = isLight ? "js_animations/pipeline.js" : "js_animations/swirl.js";
-    script.className = isLight ? "pipeline-animation" : "swirl-animation";
+    script.src = isLight ? "js_animations/light_bg.js" : "js_animations/dark_bg.js";
+    script.className = isLight ? "light_bg-animation" : "dark_bg-animation";
     document.body.appendChild(script);
 }
 
