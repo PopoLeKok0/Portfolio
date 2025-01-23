@@ -225,7 +225,7 @@ Recent conversation:
 ${recentMessages.map(msg => `${msg.role} (${msg.language}): ${msg.content}`).join('\n')}`
 };
 
-        const response = await fetch('https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=AIzaSyAmnzpIJTBWXGV-R46hrTcL5-lGxAXCkGY', {
+        const response = await fetch('https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=AIzaSyCdi23jD4NdnKSI4brRcEjJcTwb9t2gBMA', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
