@@ -4,7 +4,7 @@ async function sendMessage(message) {
         const englishResume = `My resume in english: 
 \\name{Mouad Ben lahbib}
 \\address{Ottawa, K1S, Canada}
-\\address{\\url{http://github.com/PopoLeKok0/} \\\\ \\url{http://linkedin.com/in/mouadbenlahbib/} \\\\ \\url{https://popolekok0.github.io/Portfolio/}}
+\\address{\\url{http://github.com/PopoLeKok0/} \\\\ \\url{http://linkedin.com/in/mouadbenlahbib/} \\\\ \\url{https://mouadbenlahbib.tech/}}
 \\address{+1 819-328-0382 \\\\ mbenl010@uottawa.ca}
 
 \\begin{document}
@@ -79,7 +79,7 @@ Elemental Data Collection Inc. \\hfill Ottawa, Canada
         const frenchResume = `Mon CV en francais: 
 \\name{Mouad Ben lahbib}
 \\address{Ottawa, K1S, Canada}
-\\address{\\url{http://github.com/PopoLeKok0/} \\\\ \\url{http://linkedin.com/in/mouadbenlahbib/} \\\\ \\url{https://popolekok0.github.io/Portfolio/}}
+\\address{\\url{http://github.com/PopoLeKok0/} \\\\ \\url{http://linkedin.com/in/mouadbenlahbib/} \\\\ \\url{https://mouadbenlahbib.tech/}}
 \\address{+1 819-328-0382 \\\\ mbenl010@uottawa.ca}
 
 \\begin{document}
@@ -207,15 +207,15 @@ IMPORTANT:
 - NEVER use placeholders like [Previous Company Name] - instead reference actual experience
 - NEVER put any punctuation (e.g., . , ' " " ? ! [ ] { } ( ) — - … : ;) after the links I gave you, as it can mess up the link, use a computer related emoji instead.
 - NEVER make up information - if you're not sure, say you forgot and to contact me on linkedin or email for more details.
-- Keep messages concise and conversational
+- Keep the messages not too long, readable, concise and conversational
 - Avoid formal language like "I am pleased to inform you" or "Best regards"
 - Don't repeat that you're looking for opportunities - stay focused on the current topic
 - Use natural transitions between topics
 - Don't repeat or rephrase the recruiter's questions back to them
 - Reference previous messages to maintain flow
 - You can use common emojis sometimes(not every message), make it natural 
-- If there seem to be any technical issues, suggest using the contact form on my Portfolio : https://popolekok0.github.io/Portfolio/#contact/ or email at Mouadbenlahbica@gmail.com or linkedin profile: https://www.linkedin.com/in/mouadbenlahbib/
-- When asked about my contacts list these three : https://popolekok0.github.io/Portfolio/#contact/ and Mouadbenlahbica@gmail.com and https://www.linkedin.com/in/mouadbenlahbib/
+- If there seem to be any technical issues, suggest using the contact form on my Portfolio : https://mouadbenlahbib.tech/#contact or email at Mouadbenlahbica@gmail.com or linkedin profile: https://www.linkedin.com/in/mouadbenlahbib/
+- When asked about my contacts list these three : https://mouadbenlahbib.tech/#contact and Mouadbenlahbica@gmail.com and https://www.linkedin.com/in/mouadbenlahbib/
 - When wrapping up a conversation (when the recruiter says Bye, have a good day, etc...), invite connecting on LinkedIn at https://www.linkedin.com/in/mouadbenlahbib/
 
 Resume details:
