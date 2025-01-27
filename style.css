@@ -33,7 +33,7 @@ body h3 {
     text-align: center;
 }
 
-/* intro section */
+/* /* intro section
 .intro-background {
     position: absolute;
     top: -20px;
@@ -61,7 +61,7 @@ body h3 {
     transition: 1s;
 }
 
-/* intro text */
+/* intro text 
 .welcome-header {
     position: absolute;
     top: 49%;
@@ -89,7 +89,7 @@ body h3 {
     opacity: 0;
     transition: ease-in-out 0.5s;
 }
-
+ */
 /* Navigation Bar */
 nav {
     background: rgba(33, 33, 41, 0.95); 

@@ -1,4 +1,4 @@
-// Welcome screen animation
+/* // Welcome screen animation
 let intro = document.querySelector('.intro');
 let welcomeSpan = document.querySelectorAll('.welcome');
 
@@ -30,7 +30,7 @@ window.addEventListener('DOMContentLoaded', () => {
             intro.style.top = '-105vh';
         }, 2300);
     });
-});
+}); */
 
 // Theme Switcher Logic
 const THEME_STORAGE_KEY = 'preferred-theme';
