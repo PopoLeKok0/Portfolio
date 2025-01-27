@@ -817,14 +817,14 @@ nav li {
   
   .timeline-content {
     padding: 1.5rem;
-    background: #323949; /* Explicit color */
+    background: rgba(50, 57, 73, 0.75); /* Converted to rgba with 0.95 alpha */
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
-    border: 1px solid #eee; /* Added subtle border */
-  }
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(238, 238, 238, 0.2); /* Added transparency to border */
+}
   .light-mode .timeline-content {
     padding: 1.5rem;
-    background: #fff; /* Explicit color */
+    background: rgba(255, 255, 255, 0.75); /* Explicit color */
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
     border: 1px solid #eee; /* Added subtle border */
