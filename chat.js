@@ -1,3 +1,5 @@
+const loadingIndicator = document.getElementById('loading-indicator');
+let isProcessing = false;
 async function sendMessage(message) {
     try {
         // Store both resumes as context
@@ -267,15 +269,46 @@ function addMessage(message, isUser) {
     const messageDiv = document.createElement('div');
     messageDiv.className = `message ${isUser ? 'user-message' : 'ai-message'}`;
     
-    const linkedMessage = message.replace(
-        /(https?:\/\/[^\s]+)/g, 
-        '<a href="$1" target="_blank">$1</a>'
-    );
-    
-    messageDiv.innerHTML = linkedMessage;
-    chatMessages.appendChild(messageDiv);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
+    if (!isUser) {
+        // Add loading indicator
+        const loadingDiv = document.createElement('div');
+        loadingDiv.className = 'loading-indicator';
+        loadingDiv.innerHTML = `
+            <div class="loading-spinner"></div>
+            <span class="loading-text">Typing...</span>
+        `;
+        chatMessages.appendChild(loadingDiv);
+
+        // Scroll to the bottom immediately to show typing animation
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Delay for message insertion
+    setTimeout(() => {
+        if (!isUser) {
+            // Remove typing animation
+            const indicators = chatMessages.getElementsByClassName('loading-indicator');
+            while (indicators.length > 0) {
+                indicators[0].remove();
+            }
+        }
+
+        // Add the actual message
+        const linkedMessage = message.replace(
+            /(https?:\/\/[^\s]+)/g,
+            '<a href="$1" target="_blank" class="chat-link">$1</a>'
+        );
+        messageDiv.innerHTML = linkedMessage;
+        chatMessages.appendChild(messageDiv);
+
+        // Smooth scroll to new message
+        chatMessages.scrollTo({
+            top: chatMessages.scrollHeight,
+            behavior: 'smooth'
+        });
+    }, isUser ? 0 : 2000); // Increase delay to allow animation to be visible
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const input = document.getElementById('chat-input');
@@ -295,21 +328,40 @@ document.addEventListener('DOMContentLoaded', () => {
     
 
     async function handleSend() {
+        if (isProcessing) return;
+        
         const message = input.value.trim();
         if (message) {
-            addMessage(message, true);
-            input.value = '';
-            input.disabled = true;
-            sendButton.disabled = true;
-
-            const response = await sendMessage(message);
-            addMessage(response, false);
-
-            input.disabled = false;
-            sendButton.disabled = false;
-            input.focus();
+            try {
+                isProcessing = true;
+                addMessage(message, true);
+                input.value = '';
+                input.disabled = true;
+                sendButton.disabled = true;
+                
+                // Show loading indicator with slight delay
+                setTimeout(() => {
+                    if (isProcessing) {
+                        loadingIndicator.style.display = 'flex';
+                    }
+                }, 300);
+    
+                const response = await sendMessage(message);
+                addMessage(response, false);
+                
+            } catch (error) {
+                console.error('Error:', error);
+                addMessage("Hmm, my connection seems shaky. Mind trying again? 🫣", false);
+            } finally {
+                isProcessing = false;
+                loadingIndicator.style.display = 'none';
+                input.disabled = false;
+                sendButton.disabled = false;
+                input.focus();
+            }
         }
     }
+    
 
     sendButton.addEventListener('click', handleSend);
     input.addEventListener('keypress', (e) => {

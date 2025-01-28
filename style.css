@@ -764,18 +764,18 @@ nav li {
     position: relative;
     max-width: 1200px;
     margin: 4rem auto;
-    min-height: 800px; /* Added minimum height to ensure line visibility */
+    min-height: 800px; /* Adds minimum height to ensure line visibility */
   }
   
   .timeline-line {
     position: absolute;
-    width: 4px; /* Made line thicker */
-    background-color: #666; /* Explicit color instead of variable */
+    width: 4px; /* Makes line thicker */
+    background-color: #666; 
     top: 0;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1; /* Ensure line appears behind content */
+    z-index: 1; /
   }
   
   .timeline-item {
@@ -784,7 +784,7 @@ nav li {
     padding: 1rem;
     box-sizing: border-box;
     margin: 2rem 0;
-    z-index: 2; /* Ensure items appear above line */
+    z-index: 2; /* Ensures items appear above line */
   }
   
   .timeline-item::after {
@@ -792,11 +792,11 @@ nav li {
     position: absolute;
     width: 20px;
     height: 20px;
-    background: #fff; /* Explicit background color */
-    border: 3px solid #666; /* Made border thicker and explicit color */
+    background: #fff; 
+    border: 3px solid #666; /* Makes border thicker and explicit color */
     border-radius: 50%;
     top: 0;
-    z-index: 3; /* Ensure dots appear above line */
+    z-index: 3; /* Ensures dots appear above line */
   }
   
   .timeline-item.right {
@@ -817,45 +817,45 @@ nav li {
   
   .timeline-content {
     padding: 1.5rem;
-    background: rgba(50, 57, 73, 0.75); /* Converted to rgba with 0.95 alpha */
+    background: rgba(50, 57, 73, 0.75); 
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(238, 238, 238, 0.2); /* Added transparency to border */
+    border: 1px solid rgba(238, 238, 238, 0.2); /* Adds transparency to border */
 }
   .light-mode .timeline-content {
     padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.75); /* Explicit color */
+    background: rgba(255, 255, 255, 0.75); 
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
-    border: 1px solid #eee; /* Added subtle border */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+    border: 1px solid #eee; /* Subtle border */
   }
   .timeline-date {
     font-weight: bold;
     margin-bottom: 0.5rem;
-    color: #5A69E9;  /* Explicit accent color */
+    color: #5A69E9;  
   }
   .light-mode .timeline-date {
     font-weight: bold;
     margin-bottom: 0.5rem;
-    color: rgba(75, 134, 161, 0.95);  /* Explicit accent color */
+    color: rgba(75, 134, 161, 0.95); 
   }
   .timeline-content h4 {
     margin: 0.5rem 0;
-    color: #ffffff; /* Explicit color */
+    color: #ffffff; 
   }
   
   .timeline-content p {
     margin: 0.5rem 0;
-    color: #ffffff; /* Explicit color */
+    color: #ffffff; 
   }
   .light-mode .timeline-content h4 {
     margin: 0.5rem 0;
-    color: #333; /* Explicit color */
+    color: #333; 
   }
   
   .light-mode .timeline-content p {
     margin: 0.5rem 0;
-    color: #666; /* Explicit color */
+    color: #666; 
   }
   .timeline-content ul {
     margin: 0.5rem 0;
@@ -864,11 +864,11 @@ nav li {
   
   .timeline-content li {
     margin: 0.3rem 0;
-    color: #ffffff; /* Explicit color */
+    color: #ffffff; 
   }
   .light-mode .timeline-content li {
     margin: 0.3rem 0;
-    color: #666; /* Explicit color */
+    color: #666; 
   }
   
   @media (max-width: 768px) {
@@ -886,3 +886,37 @@ nav li {
       left: -10px !important;
     }
   }
+/* Loading Animation Styles */
+.loading-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    color: #ffffff;
+    margin: 10px 0;
+    opacity: 0.8;
+}
+
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #5A69E9;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Light mode */
+body.light-mode .loading-spinner {
+    border-top-color: rgba(75, 134, 161, 0.95);
+}
+
+body.light-mode .loading-indicator {
+    color: #333;
+}
