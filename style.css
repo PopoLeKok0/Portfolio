@@ -928,3 +928,6 @@ body.light-mode .loading-spinner {
 body.light-mode .loading-indicator {
     color: #333;
 }
+html {
+    scroll-behavior: smooth;
+  }

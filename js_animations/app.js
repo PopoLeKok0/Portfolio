@@ -95,6 +95,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
     });
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1);
+          const targetElement = document.getElementById(targetId);
+      
+          if (targetId === "experience") {
+            // For "Experience" section, scroll to the start with an offset
+            const topOffset = 300; // Adjust offset as needed
+            const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - topOffset;
+      
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth',
+            });
+          } else {
+            // Default scroll for other sections
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'center',
+            });
+          }
+        });
+      });
+      
 });
 
 // Make isLightMode available globally
