@@ -552,11 +552,11 @@ body.light-mode .project-card {
 }
 
 body.light-mode .contact-form {
-    color: #000;
-    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.75); 
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+    border: 1px solid #eee; /* Subtle border */
 }
 
 body.light-mode .contact-form input,
@@ -585,7 +585,11 @@ body.light-mode #contact a {
 
 /* Light mode styles for chat */
 body.light-mode .chat-container {
-    background: rgba(147, 173, 159, 0.1);
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.75); 
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+    border: 1px solid #eee; /* Subtle border */
 }
 
 body.light-mode .ai-message {
