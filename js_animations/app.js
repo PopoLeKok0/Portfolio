@@ -45,6 +45,7 @@ function updateThemeElements(isLight) {
     
     // Update body class
     document.body.classList.toggle('light-mode', isLight);
+    document.documentElement.classList.toggle('light-mode', isLight);
     
     // Update theme switch icon
     const themeIcon = isLight ? 'icons/dark_mode.png' : 'icons/light_mode.png';
