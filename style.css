@@ -5,6 +5,13 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
+/* Prevent image selection globally */
+img {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
 
 /* Used !important to override the global style */
 .great-vibes-regular {
