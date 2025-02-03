@@ -939,10 +939,17 @@ html {
 html, body { 
     cursor: url('/cursors/normal.cur'), auto;
 }
+#theme-switch, 
+#theme-switch img,
 a { 
     cursor: url('cursors/link.cur'), pointer;
 }
-textarea, input, .text-mode { 
+textarea:focus, 
+input:focus, 
+.text-mode:focus, 
+textarea:hover, 
+input:hover, 
+.text-mode:hover { 
     cursor: url('cursors/text.cur'), text;
 }
 .unavailable, button:disabled {
@@ -952,27 +959,27 @@ textarea, input, .text-mode {
     cursor: url('cursors/working.ani'), wait;
 }
 
-.sparkle {
-    position: absolute;
+body {
+    width:100%;
+    height:100%;
+    background-color: #000;
+  }
+  
+  .sparkle {
+    position: fixed;
+    z-index: 6;
+    opacity: 0.5;
     pointer-events: none;
-}
-
-.sparkle-particle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: linear-gradient(135deg, #ffd900, #fffb00, #fbff00);
-    border-radius: 50%;
-    animation: sparkle-animation 0.6s ease-out forwards;
-}
-
-@keyframes sparkle-animation {
-    0% {
-        opacity: 1;
-        transform: scale(1) rotate(0deg);
-    }
-    100% {
-        opacity: 0;
-        transform: scale(2.5) rotate(180deg);
-    }
-}
+    clip-path: polygon(
+      50% 0%,
+      61% 35%,
+      98% 35%,
+      68% 57%,
+      79% 91%,
+      50% 70%,
+      21% 91%,
+      32% 57%,
+      2% 35%,
+      39% 35%
+    );
+  }

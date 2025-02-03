@@ -37,6 +37,8 @@ const THEME_STORAGE_KEY = 'preferred-theme';
 let isLightMode = localStorage.getItem(THEME_STORAGE_KEY) === 'light';
 let logo_small = document.querySelector('.logo_small');
 let logo_big = document.querySelector('.logo_big');
+let trailArr = [1, .9, .8, .5, .25, .6, .4, .3, .2];
+var sparklesArr = [];
 
 function updateThemeElements(isLight) {
     const themeSwitch = document.getElementById('theme-switch');
@@ -119,33 +121,148 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
       });
-    document.addEventListener('click', function(e) {
-    const sparkleContainer = document.createElement('div');
-    sparkleContainer.className = 'sparkle';
-    sparkleContainer.style.left = e.pageX + 'px';
-    sparkleContainer.style.top = e.pageY + 'px';
-    
-    // Create multiple particles
-    for (let i = 0; i < 8; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'sparkle-particle';
+      function trailAnimation(e, i, maxYTranslation) {
+        let elem = document.createElement('div');
+      
+        elem = styleSparkle(elem, e, i);
         
-        // Calculate position for each particle
-        const angle = (i * 45) * Math.PI / 180; // 45 degrees apart
-        const distance = 10;
-        particle.style.left = (Math.cos(angle) * distance) + 'px';
-        particle.style.top = (Math.sin(angle) * distance) + 'px';
+        elem.classList.add("sparkle");
+      
+        document.body.appendChild(elem);
+      
+        elem = addAnimationProperties(elem, i, maxYTranslation);
         
-        sparkleContainer.appendChild(particle);
-    }
-    
-    document.body.appendChild(sparkleContainer);
-    
-    // Remove the sparkle container after animation
-    setTimeout(() => {
-        sparkleContainer.remove();
-    }, 600);
-    });
+        sparklesArr.push(elem);
+      }
+      
+      function styleSparkle(elem, e, i) {
+        let j = (1 - i) * 50;
+        let size = Math.ceil(Math.random() * 10 * i) + 'px';
+        
+        elem.style.top = e.pageY - window.scrollY + Math.round(Math.random() * j - j / 2) + 'px';
+        elem.style.left = e.pageX + Math.round(Math.random() * j - j / 2) + 'px';
+        
+        elem.style.width = size;
+        elem.style.height = size;
+        elem.style.borderRadius = size;
+        
+        if (window.isLightMode) {
+            // More blue, with some cyan and a bit of purple for variety
+            elem.style.background = `hsla(${200 + Math.random() * 40}, ${50 + Math.random() * 50}%, ${30 + Math.random() * 40}%, ${i})`;
+        } else {
+            // Purple, pink, and dark blue sparkles in dark mode
+            elem.style.background = `hsla(${220 + Math.random() * 80}, ${60 + Math.random() * 40}%, ${50 + Math.random() * 40}%, ${i})`;
+        }
+        
+        
+        return elem;
+      }
+      
+      function addAnimationProperties(elem, i, maxYTranslation) {
+        const ANIMATION_SPEED = 1100;
+        let lifeExpectancy = Math.round(Math.random() * i * ANIMATION_SPEED);
+      
+        elem.maxYTranslation = maxYTranslation;
+        elem.animationSpeed = ANIMATION_SPEED;
+        elem.created = Date.now();
+        elem.diesAt = elem.created + lifeExpectancy;
+      
+        return elem;
+      }
+      
+      function moveSparkles() {
+        let remove = false;
+        let moveIndex = 0;
+        let sparkle;
+      
+        for (let i = 0; i < sparklesArr.length; i++) {
+          sparkle = sparklesArr[i];
+          remove = sparkle.diesAt <= Date.now();
+          
+          if (remove) {
+            document.body.removeChild(sparkle);
+          } else {
+            if (sparkle.maxYTranslation) {
+              let interpolation = calculateInterpolation(sparkle);
+              sparkle.style.transform = `translateY(${interpolation}px)`; 
+            }
+            
+            sparklesArr[moveIndex++] = sparkle;  // faster than array.splice()    
+          }
+        }
+        
+        sparklesArr.length = moveIndex;
+        requestAnimationFrame(moveSparkles);
+      }
+      
+      function calculateInterpolation(sparkle) {
+        let currentMillis = Date.now();
+        let lifeProgress = (currentMillis - sparkle.created) / sparkle.animationSpeed;
+        let interpolation = sparkle.maxYTranslation * lifeProgress;
+        
+        return interpolation;
+      }
+      
+      window.addEventListener('mousemove', function (e) {
+        trailArr.forEach((i) => {trailAnimation(e, i)});
+      
+        let maxYTranslation = '80';
+        trailArr.forEach((i) => {trailAnimation(e, i, maxYTranslation)});
+      }, false);
+      document.addEventListener('click', function(e) {
+        let maxYTranslation = 80;
+        trailArr.forEach((intensity) => {
+          for (let j = 0; j < 15; j++) {
+            let elem = document.createElement('div');
+            elem = styleSparkle(elem, e, intensity);
+            elem.classList.add("sparkle");
+            document.body.appendChild(elem);
+      
+            // Randomize translations only for click sparkles
+            const randomYTranslation = (Math.random() * 2 - 1) * maxYTranslation;
+            const randomXTranslation = (Math.random() * 2 - 1) * maxYTranslation;
+      
+            elem.maxYTranslation = randomYTranslation;
+            elem.maxXTranslation = randomXTranslation;
+      
+            elem = addAnimationProperties(elem, intensity, randomYTranslation);
+            sparklesArr.push(elem);
+          }
+        });
+      });
+
+      function moveSparkles() {
+        let moveIndex = 0;
+      
+        for (let i = 0; i < sparklesArr.length; i++) {
+          let sparkle = sparklesArr[i];
+          
+          if (sparkle.diesAt <= Date.now()) {
+            document.body.removeChild(sparkle);
+          } else {
+            if (sparkle.maxYTranslation) {
+              let yInterpolation = calculateInterpolation(sparkle);
+              let xInterpolation = sparkle.maxXTranslation ? 
+                calculateXInterpolation(sparkle) : 0;
+              sparkle.style.transform = `translateY(${yInterpolation}px) translateX(${xInterpolation}px)`; 
+            }
+            
+            sparklesArr[moveIndex++] = sparkle;
+          }
+        }
+        
+        sparklesArr.length = moveIndex;
+        requestAnimationFrame(moveSparkles);
+      }
+      
+      function calculateXInterpolation(sparkle) {
+        let currentMillis = Date.now();
+        let lifeProgress = (currentMillis - sparkle.created) / sparkle.animationSpeed;
+        let interpolation = sparkle.maxXTranslation * lifeProgress;
+        
+        return interpolation;
+      }
+      moveSparkles();
 });
 
 // Make isLightMode available globally
