@@ -935,3 +935,44 @@ body.light-mode .loading-indicator {
 html {
     scroll-behavior: smooth;
   }
+/* Default Cursor */
+html, body { 
+    cursor: url('/cursors/normal.cur'), auto;
+}
+a { 
+    cursor: url('cursors/link.cur'), pointer;
+}
+textarea, input, .text-mode { 
+    cursor: url('cursors/text.cur'), text;
+}
+.unavailable, button:disabled {
+    cursor: url('cursors/unavailable.cur'), not-allowed;
+}
+.working-mode {
+    cursor: url('cursors/working.ani'), wait;
+}
+
+.sparkle {
+    position: absolute;
+    pointer-events: none;
+}
+
+.sparkle-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: linear-gradient(135deg, #ffd900, #fffb00, #fbff00);
+    border-radius: 50%;
+    animation: sparkle-animation 0.6s ease-out forwards;
+}
+
+@keyframes sparkle-animation {
+    0% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(2.5) rotate(180deg);
+    }
+}

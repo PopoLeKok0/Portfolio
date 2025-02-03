@@ -119,7 +119,33 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
       });
-      
+    document.addEventListener('click', function(e) {
+    const sparkleContainer = document.createElement('div');
+    sparkleContainer.className = 'sparkle';
+    sparkleContainer.style.left = e.pageX + 'px';
+    sparkleContainer.style.top = e.pageY + 'px';
+    
+    // Create multiple particles
+    for (let i = 0; i < 8; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'sparkle-particle';
+        
+        // Calculate position for each particle
+        const angle = (i * 45) * Math.PI / 180; // 45 degrees apart
+        const distance = 10;
+        particle.style.left = (Math.cos(angle) * distance) + 'px';
+        particle.style.top = (Math.sin(angle) * distance) + 'px';
+        
+        sparkleContainer.appendChild(particle);
+    }
+    
+    document.body.appendChild(sparkleContainer);
+    
+    // Remove the sparkle container after animation
+    setTimeout(() => {
+        sparkleContainer.remove();
+    }, 600);
+    });
 });
 
 // Make isLightMode available globally
