@@ -202,17 +202,26 @@ document.addEventListener('DOMContentLoaded', () => {
         
         return interpolation;
       }
-      
+      let lastCall = 0;
+
       window.addEventListener('mousemove', function (e) {
-        trailArr.forEach((i) => {trailAnimation(e, i)});
-      
-        let maxYTranslation = '80';
-        trailArr.forEach((i) => {trailAnimation(e, i, maxYTranslation)});
+          const now = Date.now();
+
+          if (now - lastCall > 40) { // Throttling to limit calls
+              let maxYTranslation = '80';
+              
+              trailArr.forEach((i) => { 
+                  trailAnimation(e, i, maxYTranslation); 
+              });
+
+              lastCall = now;
+          }
       }, false);
+
       document.addEventListener('click', function(e) {
         let maxYTranslation = 80;
         trailArr.forEach((intensity) => {
-          for (let j = 0; j < 15; j++) {
+          for (let j = 0; j < 5; j++) {
             let elem = document.createElement('div');
             elem = styleSparkle(elem, e, intensity);
             elem.classList.add("sparkle");
