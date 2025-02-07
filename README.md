@@ -29,7 +29,10 @@ If you'd like to contribute or suggest improvements:
 
 ## License ⚖️
 
-All content, code, and resources in this repository are protected under the **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License**. You can find more details [here](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en).
+All Rights Reserved.
+
+This code is the property of Mouad Ben lahbib. No one is granted permission to use, copy, modify, or distribute this code without explicit written consent from the author.
+
 
 ### Permissions ✅
 - **Allowed:** Viewing and sharing for personal use.  
