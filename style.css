@@ -944,12 +944,12 @@ html {
   }
 /* Default Cursor */
 html, body { 
-    cursor: url('/cursors/normal.cur'), auto;
+    cursor: url('/cursors/normal.svg'), auto;
 }
 #theme-switch, 
 #theme-switch img,
 a { 
-    cursor: url('cursors/link.cur'), pointer;
+    cursor: url('cursors/link.svg'), pointer;
 }
 textarea:focus, 
 input:focus, 
@@ -957,10 +957,10 @@ input:focus,
 textarea:hover, 
 input:hover, 
 .text-mode:hover { 
-    cursor: url('cursors/text.cur'), text;
+    cursor: url('cursors/text.svg'), text;
 }
 .unavailable, button:disabled {
-    cursor: url('cursors/unavailable.cur'), not-allowed;
+    cursor: url('cursors/unavailable.svg'), not-allowed;
 }
 .working-mode {
     cursor: url('cursors/working.ani'), wait;
