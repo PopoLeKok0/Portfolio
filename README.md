@@ -12,9 +12,9 @@ This portfolio is a work in progress designed to:
 ## Features ✨
 
 - **Thematic Switcher:** 🌗 A light and dark mode toggle to customize user experience.  
-- **Custom Animations:** 🎥 Dynamic visuals powered by JavaScript.  
-- **Projects Showcase:** 🖥️ Highlights of my most impactful work.  
+- **Custom Animations:** 🎥 Dynamic visuals powered by JavaScript.   
 - **AI Chat Interface:** 🤖 Engage with an AI for an interactive experience.
+- **Analytics Integration:** 📊 Google Analytics for visitor insights.
 
 ## Status 🛠️
 
