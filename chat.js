@@ -2,159 +2,241 @@ const loadingIndicator = document.getElementById('loading-indicator');
 let isProcessing = false;
 async function sendMessage(message) {
     try {
-        // Store both resumes as context
+        // Store updated resume as context
         const englishResume = `My resume in english: 
 \\name{Mouad Ben lahbib}
-\\address{Ottawa, K1S, Canada}
-\\address{\\url{http://github.com/PopoLeKok0/} \\\\ \\url{http://linkedin.com/in/mouadbenlahbib/} \\\\ \\url{https://mouadbenlahbib.tech/}}
-\\address{+1 819-328-0382 \\\\ mbenl010@uottawa.ca}
+\\address{Ottawa, ON K1S, Canada}
+\\address{\\href{https://github.com/PopoLeKok0}{GitHub} \\\\ \\href{https://linkedin.com/in/mouadbenlahbib}{LinkedIn} \\\\ \\href{http://mouadbenlahbib.tech/}{Portfolio}}
+\\address{+1 (819) 328-0382 \\quad mbenl010@uottawa.ca}
 
 \\begin{document}
 
+%-----------------------------------
+% SKILLS
+%-----------------------------------
 \\begin{rSection}{Skills}
-\\begin{tabular}{ @{} >{\\bfseries}l @{\hspace{8ex}} l }
-Languages & English, French, Arabic – All Native/Bilingual Proficiency\\\\
-Programming & Python, Java, C++, JavaScript, HTML, CSS, SystemVerilog, VHDL, SystemC, Git\\\\
-Development & Software Development, Web Development, Algorithm Design, Data Structures, Debugging\\\\
-Soft Skills & Problem-solving, Teamwork, Time Management, Communication\\\\
+\\small
+\\begin{tabular}{ @{} >{\\bfseries}l @{\\hspace{6ex}} l }
+Languages & English, French, Arabic -- Native/Full Proficiency \\\\
+Programming & Python, Java, C++, Go, JavaScript, React (Web \\& Native), Node.js, Tailwind CSS, PostgreSQL \\\\
+Tools/Methods & Git/GitHub, Firebase, Google Analytics, Jira, Scrum\\\\
+Development & Software Dev, Web Dev, Algorithm Design, Data Structures, Debugging \\\\
 \\end{tabular}
 \\end{rSection}
 
+%-----------------------------------
+% EDUCATION
+%-----------------------------------
 \\begin{rSection}{Education}
-\\textbf{University of Ottawa, Ottawa, Canada} \\hfill September 2021 - December 2025 (Expected)\\\\
-Bachelor of Computer Engineering
+{\\small \\textbf{Bachelor of Computer Engineering (Co-op),} \\textit{University of Ottawa} \\hfill \\textit{Sep 2021 -- Dec 2025 (Expected)}}  
 \\begin{itemize}
-    \\item Admitted with the Differential Tuition Fee Exemption Scholarship (\$38,000 yearly). 
-    \\item Jean-Pierre Martin Memorial Scholarship granted for meritorious students enrolled in the Faculty of Engineering (\$1000).
-    \\item Developed a traffic light controller using VHDL and FSM, created the "Mealer" app for local cooks in Java, implemented Tic-tac-toe and Old Maid card games, applied DBscan for object detection, and engineered a UART design using VHDL for FPGA implementation.
+\\itemsep-0.6em % Reduce space between bullet points
+\\small % Make bullet point text smaller
+\\item Tuition Fee Exemption Scholarship (\\$38k/year) \\& Jean-Pierre Martin Scholarship (\\$1k).
 \\end{itemize}
 \\end{rSection}
-\\begin{rSection}{Work Experience}
-\\textbf{IT Instructor (Co-op)} \\hfill September 2024 - December 2024\\\\
-University of Ottawa \\hfill Ottawa, Canada
+
+%-----------------------------------
+% EXPERIENCE
+%-----------------------------------
+\\begin{rSection}{Experience}
+{\\small \\textbf{Software Developer (Volunteer),} \\textit{Hack The Hill, Ottawa} \\hfill\\textit {Feb 2025 -- Present}}  
 \\begin{itemize}
-    \\item Trained educators in coding, technology integration, and advanced tools like 3D printers, VR headsets, and robotics.
-    \\item Delivered STEM workshops in French and English, focusing on coding and engineering principles for youth.
-    \\item Developed and implemented technical curriculum, applying skills in Python, Java, and engineering design to enhance educational activities.
+\\itemsep-0.6em
+\\small
+\\item Assisting in hackathon organization with event coordination and software projects.
+\\end{itemize}
+{\\small \\textbf{IT Instructor (Co-op),} \\textit{University of Ottawa} \\hfill\\textit {Sep 2024 -- Dec 2024}}  
+\\begin{itemize}
+\\itemsep-0.6em % Reduce space between items
+\\small % Make bullet point text smaller
+\\item Developed and delivered STEM workshops (Python/Java) integrating 3D printers, robotics, and VR.
+\\item Trained educators in coding best practices, managed classrooms, and supported students with special needs.
+\\item Designed coding challenges and projects to enhance problem-solving and algorithmic thinking.
 \\end{itemize}
 
-\\textbf{Computer Scientist Intern (Co-op)} \\hfill June 2023 - September 2023\\\\
-Nidal Info \\hfill Rabat, Morocco
+{\\small \\textbf{Software Engineer Intern (Co-op),} \\textit{Nidal Info, Morocco} \\hfill\\textit {Jun 2023 -- Sep 2023}}  
 \\begin{itemize}
-    \\item Assisted customers in resolving network infrastructure issues.
-    \\item Optimized Telecoms and IT (routers, switches, PABX, IPBX, PCs, printers).
-    \\item Created a tracking tool in collaboration with the IT group.
+\\itemsep-0.6em
+\\small
+\\item Built and maintained internal web tools (frontend + backend) for telecom equipment management.
+\\item  Automated IT monitoring with Python, used Wireshark to optimize network performance.
+\\item Refactored legacy codebase to improve performance, maintainability, and scalability of internal web tools.
 \\end{itemize}
 
-\\textbf{Bilingual Sales Representative} \\hfill June 2024 - Present\\\\
-Pragma \\hfill Longueuil, Quebec, Canada
+{\\small \\textbf{Data Analyst,} \\textit{Elemental Data Collection Inc. Ottawa, Canada} \\hfill\\textit {Mar 2022 -- Jun 2022}}  
 \\begin{itemize}
-    \\item Provided technical sales support for 1-800-GOT-JUNK?, leveraging CRM tools to manage customer interactions and optimize bookings.
-    \\item Won multiple monthly contests for top performance in customer service and sales, generating total sales worth \$150,000, including a milestone \$20,000 transaction.
-    \\item Achieved an 80\\% conversion rate, consistently converting sales bookings into transactions.
+\\itemsep-0.6em
+\\small
+\\item Automated data entry via Python (40\\% time savings) and conducted SQL/Excel analyses for stakeholders.
+\\item Developed a web-based dashboard to visualize survey data, enabling real-time insights for stakeholders.
 \\end{itemize}
 
-\\textbf{Bilingual Technical Support Analyst} \\hfill June 2022 - August 2022\\\\
-NTT \\hfill Ottawa, Canada
+{\\small \\textbf{Bilingual Technical Support Analyst,} \\textit{NTT, Ottawa, Canada} \\hfill\\textit {Jun 2022 -- Sep 2022}}  
 \\begin{itemize}
-    \\item Achieved high customer satisfaction rates by solving issues regarding credit and debit cards.
-    \\item Conducted customer identity verification and processed credit limit changes using online tools.
+\\itemsep-0.6em
+\\small
+\\item Troubleshot payment issues, handled account verifications, and processed credit limit changes using CRM tools.
+\\item Documented recurring technical issues, managed customer interactions and case resolution.
+\\end{itemize}
+\\end{rSection}
+
+%-----------------------------------
+% PROJECTS
+%-----------------------------------
+\\begin{rSection}{Projects}
+{\\small \\textbf{Capstone Project – TAILS}
+\\begin{itemize}
+\\itemsep-0.6em
+\\small
+\\item Developing TAILS, a modular full-stack aerial solution using React Native, Expo Go, AI-based video analysis, real-time geolocation APIs, and PostgreSQL for search, rescue, and wildlife tracking.
 \\end{itemize}
 
-\\textbf{Coder} \\hfill April 2022 - June 2022\\\\
-Elemental Data Collection Inc. \\hfill Ottawa, Canada
+{\\small \\textbf{Portfolio Website – Mouadbenlahbib.tech} 
 \\begin{itemize}
-    \\item Coded survey responses to help companies and the Government of Canada understand public opinion.
-    \\item Reduced data entry time significantly by developing a compact Python program with high accuracy.
+\\itemsep-0.6em
+\\small
+\\item Built a full-stack portfolio using React, Tailwind CSS, and Firebase to showcase projects and skills.
+\\item Integrated an AI-powered chatbot for interactive technical interview simulations.
+\\item Implemented dynamic animations, dark/light mode, and Google Analytics for an engaging user experience.
 \\end{itemize}
 
-\\textbf{Bilingual Market Research Interviewer} \\hfill February 2022 - June 2022\\\\
-Elemental Data Collection Inc. \\hfill Ottawa, Canada
+{\\small \\textbf{Multi-Paradigm Movie Recommendation Engine – FilmForge } 
 \\begin{itemize}
-    \\item Increased survey respondents by making the experience engaging and enjoyable.
-    \\item Enhanced data collection efficiency, achieving exceptional completion rates.
+\\itemsep-0.6em
+\\small
+\\item Implementing recommendation algorithm in Java (OO), Go (Concurrent), Prolog (Logical), and Scheme (Functional) using Jaccard similarity and collaborative filtering techniques.
+\\end{itemize}
+{\\small \\textbf{Demon Slayer – 2D Action Platformer}} 
+\\begin{itemize}
+\\itemsep-0.6em
+\\small
+\\item Developed a 2D action platformer with real-time physics, multi-level platforms, and enemy AI using Pygame.
+\\item Implemented a cooldown-based projectile system with multiple attack types and dynamic enemy behaviors.
+\\item Designed platform collision detection, jumping mechanics, and combat interactions for an engaging experience with 60 FPS performance.
 \\end{itemize}
 \\end{rSection}
 
 \\end{document}`;
 
-        const frenchResume = `Mon CV en francais: 
+        const frenchResume = `Mon CV en français : 
 \\name{Mouad Ben lahbib}
-\\address{Ottawa, K1S, Canada}
-\\address{\\url{http://github.com/PopoLeKok0/} \\\\ \\url{http://linkedin.com/in/mouadbenlahbib/} \\\\ \\url{https://mouadbenlahbib.tech/}}
-\\address{+1 819-328-0382 \\\\ mbenl010@uottawa.ca}
+\\address{Ottawa, ON K1S, Canada}
+\\address{\\href{https://github.com/PopoLeKok0}{GitHub} \\\\ \\href{https://linkedin.com/in/mouadbenlahbib}{LinkedIn} \\\\ \\href{http://mouadbenlahbib.tech/}{Portfolio}}
+\\address{+1 (819) 328-0382 \\quad mbenl010@uottawa.ca}
 
 \\begin{document}
 
+%-----------------------------------
+% COMPÉTENCES
+%-----------------------------------
 \\begin{rSection}{Compétences}
-\\begin{tabular}{ @{} >{\\bfseries}l @{\hspace{8ex}} l }
-Langues & \\small Anglais, Français, Arabe  – Maîtrise native ou bilingue\\normalsize\\\\
-Programmation & \\small Python, Java, C++, HTML, CSS, JS, SystemVerilog, VHDL, SystemC, Git\\normalsize\\\\
-Développement & \\small Dev. Logiciels, Dev. Web, Algorithmes, Structures de données, Débogage\\normalsize\\\\
-Compétences Relationnelles & \\small Résolution, Travail d'équipe, Gestion du temps, Communication\\normalsize\\\\
+\\small
+\\begin{tabular}{ @{} >{\\bfseries}l @{\\hspace{6ex}} l }
+Langues & Anglais, Français, Arabe -- Natif/Proficient \\\\
+Programmation & Python, Java, C++, Go, JavaScript, React (Web \\& Native), Node.js, Tailwind CSS, PostgreSQL \\\\
+Outils/Méthodes & Git/GitHub, Firebase, Google Analytics, Jira, Scrum\\\\
+Développement & Développement logiciel, Développement web, Conception d’algorithmes, Structures de données, Débogage \\\\
 \\end{tabular}
 \\end{rSection}
 
+%-----------------------------------
+% ÉDUCATION
+%-----------------------------------
 \\begin{rSection}{Éducation}
-\\textbf{Université d'Ottawa, Ottawa, Canada} \\hfill Septembre 2021 - Décembre 2025 (Prévu)\\\\
-Baccalauréat en Génie Informatique
+{\\small \\textbf{Baccalauréat en Génie Informatique (Co-op),} \\textit{Université d’Ottawa} \\hfill \\textit{Sep 2021 -- Déc 2025 (Prévu)}}  
 \\begin{itemize}
-    \\item Admis avec la bourse d'exemption des frais de scolarité différentiels (38 000 \$ par an).
-    \\item Bourse commémorative Jean-Pierre Martin accordée aux étudiants méritants inscrits à la Faculté de génie (1 000 \$).
-    \\item Développé un contrôleur de feux de circulation en utilisant VHDL et FSM, créé l'application "Mealer" pour les cuisiniers locaux en Java, implémenté les jeux Tic-tac-toe et Old Maid, appliqué l'algorithme DBscan pour la détection d'objets, et conçu une interface UART en VHDL pour l'implémentation FPGA.
+\\itemsep-0.6em
+\\small
+\\item Bourse d’exemption des frais de scolarité (\\$38k/an) \\& Bourse Jean-Pierre Martin (\\$1k).
 \\end{itemize}
 \\end{rSection}
 
-\\begin{rSection}{Expérience Professionnelle}
-\\textbf{Instructeur IT (Co-op)} \\hfill Septembre 2024 - Décembre 2024\\\\
-Université d'Ottawa \\hfill Ottawa, Canada
+%-----------------------------------
+% EXPÉRIENCE
+%-----------------------------------
+\\begin{rSection}{Expérience}
+{\\small \\textbf{Développeur Logiciel (Bénévole),} \\textit{Hack The Hill, Ottawa} \\hfill\\textit {Fév 2025 -- Présent}}  
 \\begin{itemize}
-    \\item Formé des éducateurs sur le codage, l'intégration de la technologie, et l'utilisation d'outils avancés tels que les imprimantes 3D, les casques VR, et la robotique.
-    \\item Animé des ateliers STEM en français et en anglais, en mettant l'accent sur les principes du codage et de l'ingénierie pour les jeunes.
-    \\item Développé et mis en œuvre des programmes techniques, en appliquant des compétences en Python, Java, et en conception technique pour améliorer les activités éducatives.
+\\itemsep-0.6em
+\\small
+\\item Contribution à l’organisation d’un hackathon via la coordination d’événements et des projets logiciels.
 \\end{itemize}
 
-\\textbf{Stagiaire Informaticien (Co-op)} \\hfill Juin 2023 - Septembre 2023\\\\
-Nidal Info \\hfill Rabat, Maroc
+{\\small \\textbf{Instructeur en TI (Co-op),} \\textit{Université d’Ottawa} \\hfill\\textit {Sep 2024 -- Déc 2024}}  
 \\begin{itemize}
-    \\item Assisté les clients dans la résolution de problèmes d'infrastructure réseau.
-    \\item Optimisé les télécoms et IT (routeurs, commutateurs, PABX, IPBX, PC, imprimantes).
-    \\item Créé un outil de suivi en collaboration avec l'équipe IT.
-    \\item Fournit une assistance proactive aux utilisateurs (bureautique, téléphonie, etc.).
-    \\item Géré l'équipement informatique (stations de travail, imprimantes).
+\\itemsep-0.6em
+\\small
+\\item Développement et animation d’ateliers STEM (Python/Java) intégrant imprimantes 3D, robotique et VR.
+\\item Formation des éducateurs aux bonnes pratiques de programmation, gestion de classe et soutien aux élèves en difficulté.
+\\item Conception de défis de programmation et de projets pour renforcer la pensée algorithmique.
 \\end{itemize}
 
-\\textbf{Représentant Commercial Bilingue} \\hfill Juin 2024 - Présent\\\\
-Pragma \\hfill Longueuil, Québec, Canada
+{\\small \\textbf{Stagiaire Ingénieur Logiciel (Co-op),} \\textit{Nidal Info, Maroc} \\hfill\\textit {Juin 2023 -- Sep 2023}}  
 \\begin{itemize}
-    \\item Fournit un support technique pour les ventes à 1-800-GOT-JUNK?, en utilisant des outils CRM pour gérer les interactions clients et optimiser les réservations.
-    \\item Remporté plusieurs concours mensuels pour la meilleure performance en service client et ventes, générant un total de ventes de 150 000 \\\$, y compris une transaction record de 20 000 \\\$.
-    \\item Atteint un taux de conversion de 80\\%, transformant régulièrement les réservations en transactions.
+\\itemsep-0.6em
+\\small
+\\item Développement et maintenance d’outils web internes (frontend + backend) pour la gestion des équipements télécoms.
+\\item Automatisation de la surveillance informatique avec Python, optimisation des performances réseau via Wireshark.
+\\item Refactorisation de code pour améliorer les performances et la maintenabilité des outils internes.
 \\end{itemize}
 
-\\textbf{Analyste de soutien technique bilingue} \\hfill Juin 2022 - Août 2022\\\\
-NTT \\hfill Ottawa, Canada
+{\\small \\textbf{Analyste de Données,} \\textit{Elemental Data Collection Inc. Ottawa, Canada} \\hfill\\textit {Mar 2022 -- Juin 2022}}  
 \\begin{itemize}
-    \\item Atteint des taux de satisfaction client élevés en résolvant efficacement les problèmes liés aux cartes de crédit et de débit.
-    \\item Vérifié l'identité des clients, modifié les statuts de compte, et traité des modifications de limites de crédit à l'aide d'outils en ligne.
+\\itemsep-0.6em
+\\small
+\\item Automatisation de la saisie de données avec Python (gain de 40\\% en temps) et analyses SQL/Excel pour les parties prenantes.
+\\item Développement d’un tableau de bord web pour visualiser les données d’enquêtes en temps réel.
 \\end{itemize}
 
-\\textbf{Programmeur} \\hfill Avril 2022 - Juin 2022\\\\
-Elemental Data Collection Inc. \\hfill Ottawa, Canada
+{\\small \\textbf{Analyste Support Technique Bilingue,} \\textit{NTT, Ottawa, Canada} \\hfill\\textit {Juin 2022 -- Sep 2022}}  
 \\begin{itemize}
-    \\item Contribué au codage des réponses aux enquêtes dans des catégories précises, aidant les entreprises et le gouvernement du Canada à mieux comprendre l'opinion publique.
-    \\item Réduit considérablement le temps de saisie des données en développant un programme Python compact et efficace, avec un haut niveau de précision testée.
+\\itemsep-0.6em
+\\small
+\\item Dépannage des problèmes de paiement, gestion des vérifications de compte et ajustement des limites de crédit via CRM.
+\\item Documentation des problèmes techniques récurrents et gestion des interactions avec les clients.
+\\end{itemize}
+\\end{rSection}
+
+%-----------------------------------
+% PROJETS
+%-----------------------------------
+\\begin{rSection}{Projets}
+{\\small \\textbf{Projet de Fin d’Études – TAILS}
+\\begin{itemize}
+\\itemsep-0.6em
+\\small
+\\item Développement de TAILS, une solution aérienne modulaire full-stack utilisant React Native, Expo Go, l’analyse vidéo basée sur l’IA, des API de géolocalisation en temps réel et PostgreSQL pour la recherche, le sauvetage et le suivi de la faune.
 \\end{itemize}
 
-\\textbf{Enquêteur de Marché Bilingue} \\hfill Février 2022 - Juin 2022\\\\
-Elemental Data Collection Inc. \\hfill Ottawa, Canada
+{\\small \\textbf{Site Web Portfolio – Mouadbenlahbib.tech} 
 \\begin{itemize}
-    \\item Augmenté le nombre de répondants aux enquêtes en rendant l'expérience plus intéressante et agréable.
-    \\item Amélioré le processus de collecte de données de manière significative, atteignant des jalons d'efficacité remarquables et maintenant un taux d'achèvement exceptionnel.
+\\itemsep-0.6em
+\\small
+\\item Création d’un portfolio full-stack avec React, Tailwind CSS et Firebase pour présenter les projets et compétences.
+\\item Intégration d’un chatbot IA pour des simulations interactives d’entretiens techniques.
+\\item Mise en place d’animations dynamiques, mode sombre/clair et Google Analytics pour une expérience utilisateur améliorée.
+\\end{itemize}
+
+{\\small \\textbf{Moteur de Recommandation Multi-Paradigme – FilmForge } 
+\\begin{itemize}
+\\itemsep-0.6em
+\\small
+\\item Implémentation d’un algorithme de recommandation en Java (OO), Go (Concurrent), Prolog (Logique) et Scheme (Fonctionnel) en utilisant la similarité de Jaccard et des techniques de filtrage collaboratif.
+\\end{itemize}
+
+{\\small \\textbf{Demon Slayer – Jeu de Plateforme 2D}} 
+\\begin{itemize}
+\\itemsep-0.6em
+\\small
+\\item Développement d’un jeu de plateforme 2D avec physique en temps réel, plateformes multi-niveaux et IA ennemie avec Pygame.
+\\item Implémentation d’un système de projectiles avec refroidissement et attaques dynamiques.
+\\item Conception d’un moteur de détection de collisions, de sauts et d’interactions de combat avec une performance de 60 FPS.
 \\end{itemize}
 \\end{rSection}
 
 \\end{document}`;
+
 
         function detectLanguage(text) {
             const frenchPatterns = [
