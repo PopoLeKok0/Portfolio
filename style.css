@@ -944,7 +944,7 @@ html {
   }
 /* Default Cursor */
 html, body { 
-    cursor: url('/cursors/normal.svg'), auto;
+    cursor: url('cursors/normal.svg'), auto;
 }
 #theme-switch, 
 #theme-switch img,
@@ -960,7 +960,7 @@ input:hover,
     cursor: url('cursors/text.svg'), text;
 }
 .unavailable, button:disabled {
-    cursor: url('cursors/unavailable.svg'), not-allowed;
+    cursor: url('cursors/unavailable.cur'), not-allowed;
 }
 .working-mode {
     cursor: url('cursors/working.ani'), wait;
