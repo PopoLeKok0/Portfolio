@@ -1039,4 +1039,192 @@ body {
   .chat-messages::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
   }
-  
+  /* Mobile Responsiveness - Add this to the end of your style.css file */
+
+/* Small phones (up to 480px) */
+@media (max-width: 480px) {
+    /* Typography */
+    body {
+        font-size: 14px;
+    }
+    
+    header h2 {
+        font-size: 1.8em;
+    }
+    
+    .header-title {
+        font-size: 0.9em;
+    }
+    
+    /* Sections */
+    section {
+        margin-bottom: 60px;
+        padding: 10px;
+    }
+    
+    .about-text {
+        padding: 1rem 0.5rem;
+        font-size: 1rem;
+    }
+    
+    /* Buttons */
+    .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .button-wrapper {
+        margin: 5px;
+    }
+    
+    /* Skills Section */
+    #skills {
+        padding: 10px;
+    }
+    
+    .skills-container {
+        padding: 1rem 0.5rem;
+    }
+    
+    .skills-column {
+        min-width: 100%;
+        padding: 10px;
+    }
+    
+    #skills li {
+        padding: 8px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .icon-container {
+        margin-top: 8px;
+        justify-content: flex-start;
+    }
+    
+    /* Projects */
+    .project-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem 0.5rem;
+        gap: 15px;
+    }
+    
+    /* Experience Timeline */
+    .timeline-section {
+        padding: 0.5rem;
+    }
+    
+    .timeline {
+        margin: 2rem auto;
+    }
+    
+    .timeline-content {
+        padding: 1rem;
+    }
+    
+    .timeline-content ul {
+        padding-left: 1rem;
+    }
+    
+    /* Chat Section */
+    .chat-container {
+        padding: 10px;
+    }
+    
+    .chat-messages {
+        height: 280px;
+        padding: 10px;
+    }
+    
+    .message {
+        padding: 8px 12px;
+        max-width: 95%;
+        font-size: 14px;
+    }
+    
+    .ai-message {
+        font-size: 16px;
+    }
+    
+    #chat-input {
+        padding: 8px;
+    }
+    
+    .chat-send-btn {
+        padding: 8px 15px;
+    }
+    
+    /* Contact Form */
+    .contact-form {
+        padding: 15px;
+    }
+    
+    .contact-form .submit-btn {
+        padding: 12px 15px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Tablets and medium-sized devices (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    /* Typography */
+    header h2 {
+        font-size: 2.2em;
+    }
+    
+    /* Sections */
+    section {
+        margin-bottom: 80px;
+    }
+    
+    .about-text {
+        padding: 2rem 0.8rem;
+    }
+    
+    /* Skills Section */
+    .skills-container {
+        padding: 2rem 0.8rem;
+    }
+    
+    /* Projects */
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 2rem 0.8rem;
+    }
+    
+    /* Chat Section */
+    .chat-messages {
+        height: 350px;
+    }
+}
+
+/* Fix for device orientation changes */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+    .chat-messages {
+        height: 150px;
+    }
+    
+    .nav ul.active {
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+}
+
+/* Touch-specific improvements */
+@media (hover: none) {
+    nav ul li a {
+        padding: 10px 15px; /* Larger touch targets */
+    }
+    
+    .icon-wrapper {
+        padding: 5px;
+    }
+    
+    /* Make tooltips visible on touch or add a different solution */
+    .icon-wrapper:active .tooltip-icons,
+    .button-wrapper:active .tooltip-buttons {
+        opacity: 0.9;
+        transition-delay: 0.3s;
+    }
+}
