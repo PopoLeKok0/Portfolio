@@ -55,6 +55,33 @@ let animationFrameId = null;
 let lastScrollPosition = 0;
 let ticking = false;
 
+// Detect Firefox browser
+const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+
+// If using Firefox, reduce animation complexity
+if (isFirefox) {
+  console.log('Firefox detected - applying performance optimizations');
+  
+  // Reduce particle count for sparkles on Firefox
+  if (typeof trailArr !== 'undefined') {
+    trailArr = [0.8, 0.5, 0.3]; // Reduced array = fewer particles
+  }
+  
+  // Throttle mousemove events more aggressively on Firefox
+  let lastCallTime = 0;
+  const originalMouseMove = window.onmousemove;
+  window.onmousemove = function(e) {
+    const now = Date.now();
+    if (now - lastCallTime < 100) { // 100ms throttle instead of 40ms
+      return;
+    }
+    lastCallTime = now;
+    if (typeof originalMouseMove === 'function') {
+      originalMouseMove(e);
+    }
+  };
+}
+
 function updateThemeElements(isLight) {
     const themeSwitch = document.getElementById('theme-switch');
     

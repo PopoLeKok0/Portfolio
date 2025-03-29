@@ -1,8 +1,11 @@
 (function() {
   'use strict';
 
+  // Detect Firefox browser
+  const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+
   // Scope all variables to this function
-  const particleCount = 700;
+  const particleCount = isFirefox ? 350 : 700;
   const particlePropCount = 9;
   const particlePropsLength = particleCount * particlePropCount;
   const rangeY = 100;

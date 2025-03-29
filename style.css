@@ -61,7 +61,7 @@ img {
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    padding-top: 60px;
     color: var(--dark-text-primary);
     background-color: var(--dark-bg-primary);
     transition: background-color var(--transition-speed), color var(--transition-speed);
@@ -144,8 +144,10 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
     box-shadow: 0 2px 4px var(--dark-card-shadow);
     backdrop-filter: blur(2px);
@@ -1629,4 +1631,40 @@ body.menu-open {
     #Mouad-AI {
         padding: 10px;
     }
+}
+
+/* Force hardware acceleration for all browsers */
+.content--canvas,
+.sparkle,
+.typing-effect,
+nav,
+.project-card,
+#skills li {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Firefox-specific optimizations */
+@-moz-document url-prefix() {
+  /* Reduce animation complexity for Firefox */
+  .sparkle {
+    opacity: 0.2 !important; /* Reduce number of visible sparkles */
+  }
+  
+  /* Make scrolling smoother by using native scrollbar */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: hsla(320, 70%, 50%, 0.7) rgba(20, 20, 40, 0.9);
+    scroll-behavior: auto; /* Use native scroll instead of smooth scroll */
+  }
+  
+  html.light-mode {
+    scrollbar-color: hsla(210, 70%, 50%, 0.5) rgba(240, 240, 255, 0.3);
+  }
+  
+  /* Reduce canvas rendering complexity */
+  .content--canvas {
+    opacity: 0.85; /* Slightly reduce opacity to improve performance */
+  }
 }

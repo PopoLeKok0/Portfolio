@@ -1,8 +1,11 @@
 (function() {
   'use strict';
 
+  // Detect Firefox browser
+  const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+
   // Scope all variables to this function
-  const pipeCount = 30;
+  const pipeCount = isFirefox ? 15 : 30;
   const pipePropCount = 8;
   const pipePropsLength = pipeCount * pipePropCount;
   const turnCount = 8;
