@@ -1,0 +1,13 @@
+# Local API key generation
+generate-keys.js
+
+# Node modules
+node_modules/
+
+# Environment files
+.env
+.env.local
+
+# Misc
+.DS_Store
+*.log 

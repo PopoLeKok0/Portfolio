@@ -1,0 +1,7 @@
+{
+  "name": "portfolio-ai-chat",
+  "version": "1.0.0",
+  "description": "AI Chat module for the portfolio website",
+  "type": "module",
+  "private": true
+} 
