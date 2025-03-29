@@ -11,20 +11,64 @@
     gtag('config', 'G-GNGKN7DLVW');
     </script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+    <meta name="description" content="Mouad Ben lahbib - Computer Engineering Student Portfolio. Showcasing skills, projects, and experience in software development.">
+    <meta name="theme-color" content="#161616">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="logos/small_dark_theme_logo.png" as="image">
+    <link rel="preload" href="logos/big_dark_theme_logo.png" as="image">
+    <link rel="preload" href="js_animations/app.js" as="script">
+    <link rel="preload" href="js_animations/dark_bg.js" as="script">
+    
     <title>&#x1F47E;M . B | Portfolio&#x1F47E;</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Great+Vibes&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Sixtyfour&family=Workbench&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Pixelify+Sans:wght@400..700&family=Sixtyfour&family=Workbench&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Jersey+20&family=Pixelify+Sans:wght@400..700&family=Sixtyfour&family=Workbench&display=swap" rel="stylesheet">
-
+    
+    <!-- Optimized font loading -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Combining font requests where possible -->
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Poppins:wght@300&family=Great+Vibes&family=Sixtyfour&family=Workbench&family=Pixelify+Sans:wght@400..700&family=Jersey+20&display=swap" rel="stylesheet">
+    
+    <!-- Add font-display swap style for better performance -->
+    <style>
+        /* Apply font-display: swap to all fonts */
+        @font-face {
+            font-family: 'Poppins';
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Courier Prime';
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Great Vibes';
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Sixtyfour';
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Workbench';
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Pixelify Sans';
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Jersey 20';
+            font-display: swap;
+        }
+    </style>
 </head>
 <body>
-    <nav>
-        <li><a href="#head"><img class="logo_small" src="logos/small_dark_theme_logo.png" alt="small_dark_theme_logo"></a></li>
+    <nav aria-label="Main navigation">
+        <li><a href="#head" aria-label="Home"><img class="logo_small" src="logos/small_dark_theme_logo.png" alt="small_dark_theme_logo"></a></li>
         <ul>
             
             <li><a href="#about">About me</a></li>
@@ -34,7 +78,7 @@
             <li><a href="#contact">Contact me</a></li>
             <li><a href="#Mouad-AI" class="nav-AI">Interview my AI</a></li>
         </ul>
-        <button id="theme-switch" class="theme-switch">
+        <button id="theme-switch" class="theme-switch" aria-label="Switch theme">
             <img src="icons/light_mode.png" alt="Switch Theme">
         </button>
         
