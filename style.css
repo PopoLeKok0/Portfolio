@@ -1121,7 +1121,14 @@ body.light-mode .loading-indicator {
 }
 html {
     scroll-behavior: smooth;
-  }
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
+}
+
+html, body { 
+    scroll-padding-top: 70px;
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
+}
+
 /* Default Cursor */
 html, body { 
     cursor: url('cursors/normal.svg'), auto;

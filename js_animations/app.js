@@ -88,21 +88,32 @@ function updateThemeElements(isLight) {
 }
 
 function updateBackgroundAnimation(isLight) {
-    const existingScript = document.querySelector('.light_bg-animation, .dark_bg-animation');
-    if (existingScript) {
-        existingScript.remove();
+    // First clean up any existing animation
+    cleanupBackgroundAnimation();
+    
+    // Clear existing canvas elements
+    const canvasContainer = document.querySelector('.content--canvas');
+    if (canvasContainer) {
+        // Remove old canvas elements
+        while (canvasContainer.firstChild) {
+            canvasContainer.removeChild(canvasContainer.firstChild);
+        }
     }
     
-    // Use a more efficient way to load the script
-    const script = document.createElement('script');
-    script.src = isLight ? "js_animations/light_bg.js" : "js_animations/dark_bg.js";
-    script.className = isLight ? "light_bg-animation" : "dark_bg-animation";
+    // Completely recreate the content--canvas container to ensure a fresh start
+    if (canvasContainer) {
+        const newContainer = document.createElement('div');
+        newContainer.className = 'content--canvas';
+        canvasContainer.parentNode.replaceChild(newContainer, canvasContainer);
+    }
     
-    // Use async to prevent blocking
-    script.async = true;
+    // Load the appropriate script
+    const scriptSrc = isLight ? "js_animations/light_bg.js" : "js_animations/dark_bg.js";
     
-    // Add to the document
-    document.body.appendChild(script);
+    // Load the script and handle any errors
+    loadScript(scriptSrc).catch(error => {
+        console.error('Error loading animation script:', error);
+    });
 }
 
 // Debounce function to limit frequency of function calls
@@ -138,21 +149,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set initial theme
     updateThemeElements(isLightMode);
     
-    // Add theme switch event listener
-    const themeSwitch = document.getElementById('theme-switch');
-    if (themeSwitch) {
-        themeSwitch.addEventListener('click', () => {
-            isLightMode = !isLightMode;
-            localStorage.setItem(THEME_STORAGE_KEY, isLightMode ? 'light' : 'dark');
-            updateThemeElements(isLightMode);
-            
-            // Use requestAnimationFrame for smoother transitions
-            cancelAnimationFrame(animationFrameId);
-            animationFrameId = requestAnimationFrame(() => {
-                window.location.reload();
-            });
-        });
-    }
+    // Set up theme switch handler
+    setupThemeSwitch();
     
     // Listen for system theme changes
     const colorSchemeQuery = window.matchMedia('(prefers-color-scheme: light)');
@@ -386,6 +384,191 @@ function calculateXInterpolation(sparkle) {
     
     return interpolation;
 }
+
+// Function to load a script with a promise
+function loadScript(url) {
+  return new Promise((resolve, reject) => {
+    console.log(`Loading script: ${url}`);
+
+    // Remove any existing animation scripts to avoid conflicts
+    document.querySelectorAll('.light_bg-animation, .dark_bg-animation').forEach(el => el.remove());
+
+    // Cache busting to ensure fresh script
+    const cacheBuster = '?v=' + new Date().getTime();
+    const script = document.createElement('script');
+    script.src = url + cacheBuster;
+    
+    // Add a class for easy selection later
+    if (url.includes('light_bg.js')) {
+      script.classList.add('light_bg-animation');
+    } else if (url.includes('dark_bg.js')) {
+      script.classList.add('dark_bg-animation');
+    }
+    
+    script.onload = () => {
+      console.log(`Script loaded successfully: ${url}`);
+      // Give some time for the script to initialize
+      setTimeout(() => {
+        try {
+          // Call the appropriate setup function based on theme
+          if (url.includes('light_bg.js')) {
+            if (typeof window.lightSetup === 'function') {
+              window.lightSetup();
+              console.log('Light animation setup complete');
+            } else {
+              console.error('Light setup function not found after script load');
+            }
+          } else if (url.includes('dark_bg.js')) {
+            if (typeof window.darkSetup === 'function') {
+              window.darkSetup();
+              console.log('Dark animation setup complete');
+            } else {
+              console.error('Dark setup function not found after script load');
+            }
+          }
+          resolve();
+        } catch (error) {
+          console.error('Error setting up animation:', error);
+          reject(error);
+        }
+      }, 100);
+    };
+    
+    script.onerror = (error) => {
+      console.error(`Error loading script ${url}:`, error);
+      reject(error);
+    };
+    
+    document.body.appendChild(script);
+  });
+}
+
+// Function to clean up background animation
+function cleanupBackgroundAnimation() {
+  console.log('Cleaning up background animation...');
+  
+  // Cancel any animation frames
+  if (window.requestAnimationFrameId) {
+    window.cancelAnimationFrame(window.requestAnimationFrameId);
+    window.requestAnimationFrameId = null;
+  }
+  
+  // Call theme-specific cleanup functions if available
+  try {
+    if (typeof window.lightCleanup === 'function' && document.documentElement.dataset.theme === 'light') {
+      window.lightCleanup();
+      console.log('Light animation cleanup complete');
+    } else if (typeof window.darkCleanup === 'function' && document.documentElement.dataset.theme === 'dark') {
+      window.darkCleanup();
+      console.log('Dark animation cleanup complete');
+    }
+  } catch (error) {
+    console.error('Error cleaning up animation:', error);
+  }
+  
+  // Remove existing animation scripts
+  document.querySelectorAll('.light_bg-animation, .dark_bg-animation').forEach(el => {
+    el.remove();
+  });
+
+  // Clean up the container
+  const container = document.querySelector('.content--canvas');
+  if (container) {
+    // Remove all canvas elements
+    Array.from(container.children).forEach(child => {
+      container.removeChild(child);
+    });
+  }
+  
+  console.log('Background animation cleanup complete');
+}
+
+// Function to set up theme switch button
+function setupThemeSwitch() {
+  const themeSwitch = document.querySelector('.theme-switch');
+  if (!themeSwitch) return;
+  
+  // Clone and replace to remove old event listeners
+  const newThemeSwitch = themeSwitch.cloneNode(true);
+  themeSwitch.parentNode.replaceChild(newThemeSwitch, themeSwitch);
+  
+  // Add click event listener to the new theme switch
+  newThemeSwitch.addEventListener('click', function() {
+    const currentTheme = document.documentElement.dataset.theme;
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    console.log(`Switching theme from ${currentTheme} to ${newTheme}`);
+    
+    // Clean up existing animation
+    cleanupBackgroundAnimation();
+    
+    // Update theme without refreshing page
+    document.documentElement.dataset.theme = newTheme;
+    localStorage.setItem('theme', newTheme);
+    
+    // Update global variable for other components that use it
+    window.isLightMode = (newTheme === 'light');
+    
+    // Update all theme-dependent elements
+    updateThemeElements(window.isLightMode);
+    
+    // Completely recreate the canvas container
+    let container = document.querySelector('.content--canvas');
+    if (container) {
+      const newContainer = document.createElement('div');
+      newContainer.className = 'content--canvas';
+      container.parentNode.replaceChild(newContainer, container);
+    }
+    
+    // Load appropriate animation script
+    const scriptUrl = newTheme === 'light' ? './js_animations/light_bg.js' : './js_animations/dark_bg.js';
+    loadScript(scriptUrl).catch(error => {
+      console.error('Failed to load animation script:', error);
+    });
+    
+    // Reset SimplexNoise if it exists
+    if (window.SimplexNoise) {
+      console.log('SimplexNoise exists, no need to reload');
+    } else {
+      console.log('Loading SimplexNoise library');
+      loadScript('./js_animations/simplex-noise.min.js');
+    }
+    
+    // Set up theme switch again to ensure it works for future clicks
+    setTimeout(setupThemeSwitch, 100);
+  });
+  
+  console.log('Theme switch handler set up');
+}
+
+// Initialize on DOM load
+document.addEventListener('DOMContentLoaded', function() {
+  // Set initial theme based on local storage or system preference
+  const storedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const defaultTheme = storedTheme || (prefersDark ? 'dark' : 'light');
+  
+  document.documentElement.dataset.theme = defaultTheme;
+  window.isLightMode = (defaultTheme === 'light');
+  console.log(`Initial theme set to: ${defaultTheme}`);
+  
+  // Apply initial theme to all elements
+  updateThemeElements(window.isLightMode);
+  
+  // Load SimplexNoise library first
+  loadScript('./js_animations/simplex-noise.min.js')
+    .then(() => {
+      // Then load the appropriate animation based on theme
+      const scriptUrl = defaultTheme === 'light' ? './js_animations/light_bg.js' : './js_animations/dark_bg.js';
+      return loadScript(scriptUrl);
+    })
+    .catch(error => {
+      console.error('Error during initialization:', error);
+    });
+  
+  // Set up theme switch handler
+  setupThemeSwitch();
+});
 
 // Make isLightMode available globally
 window.isLightMode = isLightMode;
