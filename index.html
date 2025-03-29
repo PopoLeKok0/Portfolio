@@ -422,10 +422,6 @@
     <script src="js_animations/util.js"></script>
     <script src="js_animations/noise.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
-    <script src="js_animations/app.js"></script>
     
     <!-- Import map for Firebase modules -->
     <script type="importmap">
@@ -436,8 +432,17 @@
       }
     }
     </script>
-    <script type="module" src="chat.js"></script>
     
-
+    <script type="module" src="js_animations/app.js"></script>
+    <script type="module" src="chat.js"></script>
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+    </script>
 </body>
 </html>
