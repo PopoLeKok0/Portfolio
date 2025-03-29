@@ -173,6 +173,49 @@ document.addEventListener('DOMContentLoaded', () => {
         colorSchemeQuery.addListener(handleSystemThemeChange);
     }
     
+    // Mobile menu functionality
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navMenu = document.querySelector('nav ul');
+    const overlay = document.querySelector('.overlay');
+    
+    if (mobileMenuToggle && navMenu && overlay) {
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+        
+        // Close menu when clicking on a nav item
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+        
+        // Close menu when clicking the overlay
+        overlay.addEventListener('click', () => {
+            mobileMenuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
+        
+        // Handle escape key to close menu
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
+        });
+    }
+    
     // Add smooth scrolling with improved performance
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -203,6 +246,45 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Add scroll event listener with passive option for better performance
     window.addEventListener('scroll', debounce(onScroll), { passive: true });
+    
+    // Add mousemove event for cursor sparkles
+    let lastCall = 0;
+    window.addEventListener('mousemove', function (e) {
+        const now = Date.now();
+
+        if (now - lastCall > 40) { // Throttling to limit calls
+            let maxYTranslation = '80';
+            
+            trailArr.forEach((i) => { 
+                trailAnimation(e, i, maxYTranslation); 
+            });
+
+            lastCall = now;
+        }
+    }, { passive: true });
+
+    // Add click event for extra sparkles
+    document.addEventListener('click', function(e) {
+        let maxYTranslation = 80;
+        trailArr.forEach((intensity) => {
+            for (let j = 0; j < 5; j++) {
+                let elem = document.createElement('div');
+                elem = styleSparkle(elem, e, intensity);
+                elem.classList.add("sparkle");
+                document.body.appendChild(elem);
+        
+                // Randomize translations only for click sparkles
+                const randomYTranslation = (Math.random() * 2 - 1) * maxYTranslation;
+                const randomXTranslation = (Math.random() * 2 - 1) * maxYTranslation;
+        
+                elem.maxYTranslation = randomYTranslation;
+                elem.maxXTranslation = randomXTranslation;
+        
+                elem = addAnimationProperties(elem, intensity, randomYTranslation);
+                sparklesArr.push(elem);
+            }
+        });
+    }, { passive: true });
     
     // Start sparkle animation
     requestAnimationFrame(moveSparkles);
@@ -273,8 +355,10 @@ function moveSparkles() {
             document.body.removeChild(sparkle);
         } else {
             if (sparkle.maxYTranslation) {
-                let interpolation = calculateInterpolation(sparkle);
-                sparkle.style.transform = `translateY(${interpolation}px)`;
+                let yInterpolation = calculateInterpolation(sparkle);
+                let xInterpolation = sparkle.maxXTranslation ? 
+                    calculateXInterpolation(sparkle) : 0;
+                sparkle.style.transform = `translateY(${yInterpolation}px) translateX(${xInterpolation}px)`;
             }
             
             sparklesArr[moveIndex++] = sparkle;  // faster than array.splice()
@@ -291,6 +375,14 @@ function calculateInterpolation(sparkle) {
     let currentMillis = Date.now();
     let lifeProgress = (currentMillis - sparkle.created) / sparkle.animationSpeed;
     let interpolation = sparkle.maxYTranslation * lifeProgress;
+    
+    return interpolation;
+}
+
+function calculateXInterpolation(sparkle) {
+    let currentMillis = Date.now();
+    let lifeProgress = (currentMillis - sparkle.created) / sparkle.animationSpeed;
+    let interpolation = sparkle.maxXTranslation * lifeProgress;
     
     return interpolation;
 }
