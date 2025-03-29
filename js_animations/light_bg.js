@@ -7,11 +7,11 @@
   const pipePropsLength = pipeCount * pipePropCount;
   const turnCount = 8;
   const turnAmount = (360 / turnCount) * TO_RAD;
-  const turnChanceRange = 58;
-  const baseSpeed = 0.5;
-  const rangeSpeed = 1;
-  const baseTTL = 100;
-  const rangeTTL = 300;
+  const turnChanceRange = 55;
+  const baseSpeed = 0.3;
+  const rangeSpeed = 0.9;
+  const baseTTL = 500;
+  const rangeTTL = 1000;
   const baseWidth = 2;
   const rangeWidth = 4;
   const baseHue = 180;
