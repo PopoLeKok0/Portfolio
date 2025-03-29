@@ -90,7 +90,7 @@ function updateThemeElements(isLight) {
     document.documentElement.classList.toggle('light-mode', isLight);
     
     // Update theme switch icon
-    const themeIcon = isLight ? 'icons/dark_mode.png' : 'icons/light_mode.png';
+    const themeIcon = isLight ? 'assets/icons/dark_mode.png' : 'assets/icons/light_mode.png';
     if (themeSwitch) {
         const img = themeSwitch.querySelector('img');
         if (img) {
@@ -101,12 +101,12 @@ function updateThemeElements(isLight) {
     
     // Update logos - check if elements exist first
     if (logo_small) {
-        logo_small.src = isLight ? 'logos/small_light_theme_logo.png' : 'logos/small_dark_theme_logo.png';
+        logo_small.src = isLight ? 'assets/logos/small_light_theme_logo.png' : 'assets/logos/small_dark_theme_logo.png';
         logo_small.alt = isLight ? 'small_light_theme_logo' : 'small_dark_theme_logo';
     }
     
     if (logo_big) {
-        logo_big.src = isLight ? 'logos/big_light_theme_logo.png' : 'logos/big_dark_theme_logo.png';
+        logo_big.src = isLight ? 'assets/logos/big_light_theme_logo.png' : 'assets/logos/big_dark_theme_logo.png';
         logo_big.alt = isLight ? 'big_light_theme_logo' : 'big_dark_theme_logo';
     }
     
@@ -135,7 +135,7 @@ function updateBackgroundAnimation(isLight) {
     }
     
     // Load the appropriate script
-    const scriptSrc = isLight ? "js_animations/light_bg.js" : "js_animations/dark_bg.js";
+    const scriptSrc = isLight ? "assets/js_animations/light_bg.js" : "assets/js_animations/dark_bg.js";
     
     // Load the script and handle any errors
     loadScript(scriptSrc).catch(error => {
@@ -548,7 +548,7 @@ function setupThemeSwitch() {
     }
     
     // Load appropriate animation script
-    const scriptUrl = newTheme === 'light' ? './js_animations/light_bg.js' : './js_animations/dark_bg.js';
+    const scriptUrl = newTheme === 'light' ? './assets/js_animations/light_bg.js' : './assets/js_animations/dark_bg.js';
     loadScript(scriptUrl).catch(error => {
       console.error('Failed to load animation script:', error);
     });
@@ -558,7 +558,7 @@ function setupThemeSwitch() {
       console.log('SimplexNoise exists, no need to reload');
     } else {
       console.log('Loading SimplexNoise library');
-      loadScript('./js_animations/simplex-noise.min.js');
+      loadScript('./assets/js_animations/simplex-noise.min.js');
     }
     
     // Set up theme switch again to ensure it works for future clicks
@@ -583,10 +583,10 @@ document.addEventListener('DOMContentLoaded', function() {
   updateThemeElements(window.isLightMode);
   
   // Load SimplexNoise library first
-  loadScript('./js_animations/simplex-noise.min.js')
+  loadScript('./assets/js_animations/simplex-noise.min.js')
     .then(() => {
       // Then load the appropriate animation based on theme
-      const scriptUrl = defaultTheme === 'light' ? './js_animations/light_bg.js' : './js_animations/dark_bg.js';
+      const scriptUrl = defaultTheme === 'light' ? './assets/js_animations/light_bg.js' : './assets/js_animations/dark_bg.js';
       return loadScript(scriptUrl);
     })
     .catch(error => {
