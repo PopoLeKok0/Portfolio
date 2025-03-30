@@ -1,37 +1,3 @@
-/* // Welcome screen animation
-let intro = document.querySelector('.intro');
-let welcomeSpan = document.querySelectorAll('.welcome');
-
-window.addEventListener('DOMContentLoaded', () => {
-    console.log("DOM Content Loaded");
-
-    setTimeout(() => {
-        console.log("Adding 'active' class to welcome letters");
-        welcomeSpan.forEach((span, idx) => {
-            setTimeout(() => {
-                console.log(`Adding active to: ${span.textContent}`);
-                span.classList.add('active');
-            }, (idx + 1) * 400);
-        });
-
-        setTimeout(() => {
-            console.log("Starting fade out");
-            welcomeSpan.forEach((span, idx) => {
-                setTimeout(() => {
-                    console.log(`Removing active and adding fade to: ${span.textContent}`);
-                    span.classList.remove('active');
-                    span.classList.add('fade');
-                }, (idx + 1) * 50);
-            });
-        }, 2000);
-
-        setTimeout(() => {
-            console.log("Sliding out the intro screen");
-            intro.style.top = '-105vh';
-        }, 2300);
-    });
-}); */
-
 // Theme Switcher Logic
 const THEME_STORAGE_KEY = 'preferred-theme';
 
@@ -60,8 +26,6 @@ const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
 
 // If using Firefox, reduce animation complexity
 if (isFirefox) {
-  console.log('Firefox detected - applying performance optimizations');
-  
   // Reduce particle count for sparkles on Firefox
   if (typeof trailArr !== 'undefined') {
     trailArr = [0.8, 0.5, 0.3]; // Reduced array = fewer particles
@@ -415,8 +379,6 @@ function calculateXInterpolation(sparkle) {
 // Function to load a script with a promise
 function loadScript(url) {
   return new Promise((resolve, reject) => {
-    console.log(`Loading script: ${url}`);
-
     // Remove any existing animation scripts to avoid conflicts
     document.querySelectorAll('.light_bg-animation, .dark_bg-animation').forEach(el => el.remove());
 
@@ -433,7 +395,6 @@ function loadScript(url) {
     }
     
     script.onload = () => {
-      console.log(`Script loaded successfully: ${url}`);
       // Give some time for the script to initialize
       setTimeout(() => {
         try {
@@ -441,14 +402,12 @@ function loadScript(url) {
           if (url.includes('light_bg.js')) {
             if (typeof window.lightSetup === 'function') {
               window.lightSetup();
-              console.log('Light animation setup complete');
             } else {
               console.error('Light setup function not found after script load');
             }
           } else if (url.includes('dark_bg.js')) {
             if (typeof window.darkSetup === 'function') {
               window.darkSetup();
-              console.log('Dark animation setup complete');
             } else {
               console.error('Dark setup function not found after script load');
             }
@@ -472,8 +431,6 @@ function loadScript(url) {
 
 // Function to clean up background animation
 function cleanupBackgroundAnimation() {
-  console.log('Cleaning up background animation...');
-  
   // Cancel any animation frames
   if (window.requestAnimationFrameId) {
     window.cancelAnimationFrame(window.requestAnimationFrameId);
@@ -484,10 +441,8 @@ function cleanupBackgroundAnimation() {
   try {
     if (typeof window.lightCleanup === 'function' && document.documentElement.dataset.theme === 'light') {
       window.lightCleanup();
-      console.log('Light animation cleanup complete');
     } else if (typeof window.darkCleanup === 'function' && document.documentElement.dataset.theme === 'dark') {
       window.darkCleanup();
-      console.log('Dark animation cleanup complete');
     }
   } catch (error) {
     console.error('Error cleaning up animation:', error);
@@ -506,8 +461,6 @@ function cleanupBackgroundAnimation() {
       container.removeChild(child);
     });
   }
-  
-  console.log('Background animation cleanup complete');
 }
 
 // Function to set up theme switch button
@@ -523,8 +476,6 @@ function setupThemeSwitch() {
   newThemeSwitch.addEventListener('click', function() {
     const currentTheme = document.documentElement.dataset.theme;
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    
-    console.log(`Switching theme from ${currentTheme} to ${newTheme}`);
     
     // Clean up existing animation
     cleanupBackgroundAnimation();
@@ -553,19 +504,9 @@ function setupThemeSwitch() {
       console.error('Failed to load animation script:', error);
     });
     
-    // Reset SimplexNoise if it exists
-    if (window.SimplexNoise) {
-      console.log('SimplexNoise exists, no need to reload');
-    } else {
-      console.log('Loading SimplexNoise library');
-      loadScript('./assets/js_animations/simplex-noise.min.js');
-    }
-    
     // Set up theme switch again to ensure it works for future clicks
     setTimeout(setupThemeSwitch, 100);
   });
-  
-  console.log('Theme switch handler set up');
 }
 
 // Initialize on DOM load
@@ -577,21 +518,15 @@ document.addEventListener('DOMContentLoaded', function() {
   
   document.documentElement.dataset.theme = defaultTheme;
   window.isLightMode = (defaultTheme === 'light');
-  console.log(`Initial theme set to: ${defaultTheme}`);
   
   // Apply initial theme to all elements
   updateThemeElements(window.isLightMode);
   
-  // Load SimplexNoise library first
-  loadScript('./assets/js_animations/simplex-noise.min.js')
-    .then(() => {
-      // Then load the appropriate animation based on theme
-      const scriptUrl = defaultTheme === 'light' ? './assets/js_animations/light_bg.js' : './assets/js_animations/dark_bg.js';
-      return loadScript(scriptUrl);
-    })
-    .catch(error => {
-      console.error('Error during initialization:', error);
-    });
+  // Load the appropriate animation based on theme
+  const scriptUrl = defaultTheme === 'light' ? './assets/js_animations/light_bg.js' : './assets/js_animations/dark_bg.js';
+  loadScript(scriptUrl).catch(error => {
+    console.error('Error during initialization:', error);
+  });
   
   // Set up theme switch handler
   setupThemeSwitch();
