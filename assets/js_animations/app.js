@@ -404,12 +404,24 @@ function loadScript(url) {
               window.lightSetup();
             } else {
               console.error('Light setup function not found after script load');
+              // Try to create a default canvas if setup function is missing
+              const container = document.querySelector('.content--canvas');
+              if (container && container.childElementCount === 0) {
+                const canvas = document.createElement('canvas');
+                container.appendChild(canvas);
+              }
             }
           } else if (url.includes('dark_bg.js')) {
             if (typeof window.darkSetup === 'function') {
               window.darkSetup();
             } else {
               console.error('Dark setup function not found after script load');
+              // Try to create a default canvas if setup function is missing
+              const container = document.querySelector('.content--canvas');
+              if (container && container.childElementCount === 0) {
+                const canvas = document.createElement('canvas');
+                container.appendChild(canvas);
+              }
             }
           }
           resolve();
@@ -417,7 +429,7 @@ function loadScript(url) {
           console.error('Error setting up animation:', error);
           reject(error);
         }
-      }, 100);
+      }, 200); // Increase timeout to ensure script is fully processed
     };
     
     script.onerror = (error) => {
@@ -498,11 +510,25 @@ function setupThemeSwitch() {
       container.parentNode.replaceChild(newContainer, container);
     }
     
-    // Load appropriate animation script
+    // Load appropriate animation script with error handling
     const scriptUrl = newTheme === 'light' ? './assets/js_animations/light_bg.js' : './assets/js_animations/dark_bg.js';
-    loadScript(scriptUrl).catch(error => {
-      console.error('Failed to load animation script:', error);
-    });
+    loadScript(scriptUrl)
+      .then(() => {
+        // Check to make sure the appropriate setup function runs
+        if (newTheme === 'light' && typeof window.lightSetup === 'function') {
+          window.lightSetup();
+        } else if (newTheme === 'dark' && typeof window.darkSetup === 'function') {
+          window.darkSetup();
+        } else {
+          // If setup functions aren't defined or didn't run properly
+          createFallbackAnimation();
+        }
+      })
+      .catch(error => {
+        console.error('Failed to load animation script:', error);
+        // Create a fallback animation if the main animation fails
+        createFallbackAnimation();
+      });
     
     // Set up theme switch again to ensure it works for future clicks
     setTimeout(setupThemeSwitch, 100);
@@ -516,21 +542,125 @@ document.addEventListener('DOMContentLoaded', function() {
   const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   const defaultTheme = storedTheme || (prefersDark ? 'dark' : 'light');
   
+  // Ensure theme is set in document and localStorage for consistency
   document.documentElement.dataset.theme = defaultTheme;
+  localStorage.setItem('theme', defaultTheme);
   window.isLightMode = (defaultTheme === 'light');
   
   // Apply initial theme to all elements
   updateThemeElements(window.isLightMode);
   
-  // Load the appropriate animation based on theme
-  const scriptUrl = defaultTheme === 'light' ? './assets/js_animations/light_bg.js' : './assets/js_animations/dark_bg.js';
-  loadScript(scriptUrl).catch(error => {
-    console.error('Error during initialization:', error);
+  // Create a promise to ensure the animation script loads properly
+  const loadAnimationPromise = new Promise((resolve) => {
+    // Give the DOM a moment to fully initialize before loading animation
+    setTimeout(() => {
+      const scriptUrl = defaultTheme === 'light' ? 
+        './assets/js_animations/light_bg.js' : 
+        './assets/js_animations/dark_bg.js';
+      
+      loadScript(scriptUrl)
+        .then(() => {
+          // Additional check to make sure the appropriate setup function runs
+          if (defaultTheme === 'light' && typeof window.lightSetup === 'function') {
+            window.lightSetup();
+          } else if (defaultTheme === 'dark' && typeof window.darkSetup === 'function') {
+            window.darkSetup();
+          } else {
+            // If setup functions aren't defined or didn't run properly
+            createFallbackAnimation();
+          }
+          resolve();
+        })
+        .catch(error => {
+          console.error('Error during animation initialization:', error);
+          // Create a fallback animation if the main animation fails
+          createFallbackAnimation();
+          resolve(); // Resolve anyway to not block other initialization
+        });
+    }, 100); // Small delay to ensure DOM is ready
   });
   
-  // Set up theme switch handler
-  setupThemeSwitch();
+  // Set up theme switch handler after animation is loaded
+  loadAnimationPromise.then(() => {
+    setupThemeSwitch();
+  });
 });
 
 // Make isLightMode available globally
 window.isLightMode = isLightMode;
+
+// Function to create a simple fallback animation if the main animations fail
+function createFallbackAnimation() {
+  console.error('Creating fallback animation as primary animation failed');
+  
+  // Check if we already have a canvas container
+  const container = document.querySelector('.content--canvas');
+  if (!container) return;
+  
+  // Clear any existing content
+  while (container.firstChild) {
+    container.removeChild(container.firstChild);
+  }
+  
+  // Create a canvas element
+  const canvas = document.createElement('canvas');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  container.appendChild(canvas);
+  
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+  
+  // Simple particle system for fallback
+  const particles = [];
+  const particleCount = 50;
+  
+  // Create particles
+  for (let i = 0; i < particleCount; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 2 + 1,
+      color: window.isLightMode ? 
+        `rgba(${30 + Math.floor(Math.random() * 50)}, ${100 + Math.floor(Math.random() * 100)}, ${200 + Math.floor(Math.random() * 55)}, ${0.2 + Math.random() * 0.3})` : 
+        `rgba(${100 + Math.floor(Math.random() * 155)}, ${30 + Math.floor(Math.random() * 70)}, ${200 + Math.floor(Math.random() * 55)}, ${0.2 + Math.random() * 0.3})`,
+      speedX: Math.random() * 0.5 - 0.25,
+      speedY: Math.random() * 0.5 - 0.25
+    });
+  }
+  
+  // Animation function
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Update and draw particles
+    particles.forEach(particle => {
+      particle.x += particle.speedX;
+      particle.y += particle.speedY;
+      
+      // Wrap around screen
+      if (particle.x < 0) particle.x = canvas.width;
+      if (particle.x > canvas.width) particle.x = 0;
+      if (particle.y < 0) particle.y = canvas.height;
+      if (particle.y > canvas.height) particle.y = 0;
+      
+      // Draw particle
+      ctx.beginPath();
+      ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+      ctx.fillStyle = particle.color;
+      ctx.fill();
+    });
+    
+    // Request next frame
+    window.requestAnimationFrameId = requestAnimationFrame(animate);
+  }
+  
+  // Handle window resize
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+  
+  // Start animation
+  animate();
+}
