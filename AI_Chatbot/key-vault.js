@@ -8,7 +8,7 @@
 // Obfuscated API keys (Base64 encoded and reversed)
 const obfuscatedKeys = {
   firebase: 'Ft0bt1yallnMVZjQLVnQDdUVaZnQYFWS4R0d0UVOO50Q5NVY6lUQ',
-  gemini: 'RRmRzhkZsRTWUh0T4dkYatGd0NzU6VkUt0GerxkcVZVQ5NVY6lUQ',
+  gemini: '4EVVtl3cy4kVDV2YGlkNVl3UFF1Q1FmYxxmSt0UcRR0Q5NVY6lUQ',
   admin: 'drewssaP-nimdA-ruoy=='
 };
 
