@@ -12,8 +12,8 @@ export const firebaseConfig = {
 };
 
 // API keys and endpoints
-export const GEMINI_API_KEY = getApiKey('gemini');
-export const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent";
+export const GEMINI_API_KEY = "AIzaSyDSq9Z95tPFdTMTn6sOEUATyeHNd7D5ObE";
+export const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent";
 
 // Admin password - Now loaded from key-vault for better security
 export const ADMIN_PASSWORD = getApiKey('admin');
