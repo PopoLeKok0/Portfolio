@@ -36,35 +36,10 @@
     <!-- Combining font requests where possible -->
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Poppins:wght@300&family=Great+Vibes&family=Sixtyfour&family=Workbench&family=Pixelify+Sans:wght@400..700&family=Jersey+20&display=swap" rel="stylesheet">
     
-    <!-- Add font-display swap style for better performance -->
+    <!-- Apply font-display: swap for better performance -->
     <style>
-        /* Apply font-display: swap to all fonts */
-        @font-face {
-            font-family: 'Poppins';
-            font-display: swap;
-        }
-        @font-face {
-            font-family: 'Courier Prime';
-            font-display: swap;
-        }
-        @font-face {
-            font-family: 'Great Vibes';
-            font-display: swap;
-        }
-        @font-face {
-            font-family: 'Sixtyfour';
-            font-display: swap;
-        }
-        @font-face {
-            font-family: 'Workbench';
-            font-display: swap;
-        }
-        @font-face {
-            font-family: 'Pixelify Sans';
-            font-display: swap;
-        }
-        @font-face {
-            font-family: 'Jersey 20';
+        /* Font display strategy to optimize font loading */
+        html {
             font-display: swap;
         }
     </style>
@@ -410,17 +385,15 @@
                     </section>
         <section id="My-AI" data-aos="fade-up">
             <h3 class="h3-title-AI">Interview My AI</h3>
-            <div class="chat-container">
-                <div id="chat-messages" class="chat-messages">
-                    <!-- Messages will appear here -->
-                    <div id="loading-indicator" class="loading-indicator" style="display: none;">
-                        <div class="loading-spinner"></div>
-                        <span class="loading-text">Typing...</span>
-                    </div>
+            <div id="chatbot-container">
+                <!-- Chat header removed -->
+                <div id="chat-messages">
+                    <!-- Messages will be added here dynamically -->
                 </div>
-                <div class="chat-input-container">
-                    <input type="text" id="chat-input" placeholder="Type your message here..." />
-                    <button id="send-message" class="chat-send-btn">Send</button>
+                <div id="loading-indicator" style="display: none;"></div>
+                <div id="chat-input-area">
+                    <input type="text" id="chat-input" placeholder="Ask me anything..." />
+                    <button id="send-button">Send</button>
                 </div>
             </div>
         </section>
@@ -476,5 +449,4 @@
             mirror: false
         });
     </script>
-</body>
-</html>
+    

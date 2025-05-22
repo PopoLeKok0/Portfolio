@@ -1,13 +1,11 @@
-// UI handling functions for the chat interface
-
-// Add a message to the UI
+// Chat interface UI functions
 export function addMessage(message, isUser) {
   const chatMessages = document.getElementById('chat-messages');
   const messageDiv = document.createElement('div');
   messageDiv.className = `message ${isUser ? 'user-message' : 'ai-message'}`;
   
   if (!isUser) {
-    // Add loading indicator
+
     const loadingDiv = document.createElement('div');
     loadingDiv.className = 'loading-indicator';
     loadingDiv.innerHTML = `
@@ -16,37 +14,65 @@ export function addMessage(message, isUser) {
     `;
     chatMessages.appendChild(loadingDiv);
 
-    // Scroll to the bottom immediately to show typing animation
+
     chatMessages.scrollTop = chatMessages.scrollHeight;
   }
 
-  // Delay for message insertion
+
   setTimeout(() => {
     if (!isUser) {
-      // Remove typing animation
+
       const indicators = chatMessages.getElementsByClassName('loading-indicator');
       while (indicators.length > 0) {
         indicators[0].remove();
       }
     }
 
-    // Add the actual message with clickable links
+
     const linkedMessage = message.replace(
       /(https?:\/\/[^\s]+)/g,
       '<a href="$1" target="_blank" class="chat-link">$1</a>'
     );
-    messageDiv.innerHTML = linkedMessage;
+    
+
+    if (!isUser) {
+
+      const processedMessage = linkedMessage.replace(/([\u{1F300}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{1F900}-\u{1F9FF}\u{1F1E0}-\u{1F1FF}\u{1F600}-\u{1F64F}])/gu, '<span class="emoji">$1</span>');
+      
+
+      let formattedMessage = '<p class="ai-message-container">';
+      
+
+      const parts = processedMessage.split(/<span class="emoji">|<\/span>/);
+      for (let i = 0; i < parts.length; i++) {
+        if (i % 2 === 0) {
+
+          if (parts[i].trim()) {
+            formattedMessage += `<span class="ai-message-text">${parts[i]}</span>`;
+          }
+        } else {
+
+          formattedMessage += `<span class="emoji">${parts[i]}</span>`;
+        }
+      }
+      
+      formattedMessage += '</p>';
+      messageDiv.innerHTML = formattedMessage;
+    } else {
+      messageDiv.innerHTML = linkedMessage;
+    }
+    
     chatMessages.appendChild(messageDiv);
 
-    // Smooth scroll to new message
+
     chatMessages.scrollTo({
       top: chatMessages.scrollHeight,
       behavior: 'smooth'
     });
-  }, isUser ? 0 : 2000); // Increase delay to allow animation to be visible
+  }, isUser ? 0 : 2000);
 }
 
-// Show loading indicator
+
 export function showLoadingIndicator() {
   const loadingIndicator = document.getElementById('loading-indicator');
   if (loadingIndicator) {
@@ -54,7 +80,7 @@ export function showLoadingIndicator() {
   }
 }
 
-// Hide loading indicator
+
 export function hideLoadingIndicator() {
   const loadingIndicator = document.getElementById('loading-indicator');
   if (loadingIndicator) {
@@ -62,9 +88,9 @@ export function hideLoadingIndicator() {
   }
 }
 
-// Admin panel display function
+
 export function displayConversationsAdmin(password, correctPassword) {
-  // Simple password protection (not secure, just basic protection)
+
   if (password !== correctPassword) {
     alert("Incorrect password");
     return;

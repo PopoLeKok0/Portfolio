@@ -15,7 +15,7 @@ window.conversationHistory = [];
 // Initialize the chat functionality
 document.addEventListener('DOMContentLoaded', () => {
   const input = document.getElementById('chat-input');
-  const sendButton = document.getElementById('send-message');
+  const sendButton = document.getElementById('send-button'); // Fixed button ID to match HTML
   const visitorId = getVisitorId();
   const conversationId = getConversationId();
   
