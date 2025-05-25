@@ -29,7 +29,7 @@ Thumbs.db
 .env.test.local
 .env.production.local
 
-# Secret generation scripts - never commit these!
+# Secret generation scripts 
 AI_Chatbot/generate-keys.js
 *secrets*.js
 *secret*.js
